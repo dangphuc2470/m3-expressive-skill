@@ -1,29 +1,29 @@
 /**
  * Material Design 3 (M3 Expressive) - Core Design Tokens CSS
- * Seed Color: #63A002 (Calculated via Google Material Color Utilities HCT)
+ * Primary Brand Color: #4C662B (Google Material 3 Olive Green)
  */
 
 :root {
   /* Surface Containers - 5 Levels of Tone Elevation */
-  --md-sys-color-surface-dim: #DDDED6;
-  --md-sys-color-surface: #FDFCF5;
-  --md-sys-color-surface-bright: #FDFCF5;
+  --md-sys-color-surface-dim: #DCE3D8;
+  --md-sys-color-surface: #F9FAF6;
+  --md-sys-color-surface-bright: #FFFFFF;
   --md-sys-color-surface-container-lowest: #FFFFFF;
-  --md-sys-color-surface-container-low: #F7F7EF;
-  --md-sys-color-surface-container: #F2F1E9;
-  --md-sys-color-surface-container-high: #ECECE3;
-  --md-sys-color-surface-container-highest: #E6E6DE;
+  --md-sys-color-surface-container-low: #F3F7EF;
+  --md-sys-color-surface-container: #ECF2E8;
+  --md-sys-color-surface-container-high: #E5ECE0;
+  --md-sys-color-surface-container-highest: #DFE6DA;
 
-  /* Content & Borders */
-  --md-sys-color-on-surface: #1B1C18;
-  --md-sys-color-on-surface-variant: #44483D;
-  --md-sys-color-outline: #75796C;
-  --md-sys-color-outline-variant: #C5C8BA;
+  /* Typography & Content Colors */
+  --md-sys-color-on-surface: #181E15;
+  --md-sys-color-on-surface-variant: #444D40;
+  --md-sys-color-outline: #747E6E;
+  --md-sys-color-outline-variant: #C4CEBF;
 
-  /* Primary Accent (Seed: #63A002) */
-  --md-sys-color-primary: #3F6900;
+  /* Primary Accent: Exact #4C662B */
+  --md-sys-color-primary: #4C662B;
   --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #B2F65F;
+  --md-sys-color-primary-container: #CDEDA3;
   --md-sys-color-on-primary-container: #102000;
 
   /* Secondary Accent */
@@ -50,65 +50,14 @@
   --md-sys-shape-corner-small: 8px;
   --md-sys-shape-corner-medium: 12px;
   --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-large-increased: 20px;
   --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-extra-large-increased: 32px;
   --md-sys-shape-corner-full: 9999px;
 
-  /* Motion Physics - Durations */
-  --md-sys-motion-duration-short1: 50ms;
-  --md-sys-motion-duration-short2: 100ms;
-  --md-sys-motion-duration-short3: 150ms;
+  /* Motion Physics */
   --md-sys-motion-duration-short4: 200ms;
-  --md-sys-motion-duration-medium1: 250ms;
   --md-sys-motion-duration-medium2: 300ms;
-  --md-sys-motion-duration-medium3: 350ms;
-  --md-sys-motion-duration-medium4: 400ms;
-  --md-sys-motion-duration-long1: 450ms;
-  --md-sys-motion-duration-long2: 500ms;
-  --md-sys-motion-duration-long3: 550ms;
-  --md-sys-motion-duration-long4: 600ms;
-
-  /* Motion Physics - Easing Curves */
   --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
   --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
-  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
-  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
-}
-
-/* Dark Theme Overlay */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --md-sys-color-surface-dim: #13140F;
-    --md-sys-color-surface: #13140F;
-    --md-sys-color-surface-bright: #3A3A34;
-    --md-sys-color-surface-container-lowest: #0E0F0B;
-    --md-sys-color-surface-container-low: #1B1C18;
-    --md-sys-color-surface-container: #1F201B;
-    --md-sys-color-surface-container-high: #2A2A25;
-    --md-sys-color-surface-container-highest: #353530;
-
-    --md-sys-color-on-surface: #E3E3DB;
-    --md-sys-color-on-surface-variant: #C5C8BA;
-    --md-sys-color-outline: #8F9285;
-    --md-sys-color-outline-variant: #44483D;
-
-    --md-sys-color-primary: #97D945;
-    --md-sys-color-on-primary: #1F3700;
-    --md-sys-color-primary-container: #2F4F00;
-    --md-sys-color-on-primary-container: #B2F65F;
-
-    --md-sys-color-secondary: #BFCBAD;
-    --md-sys-color-on-secondary: #2A331E;
-    --md-sys-color-secondary-container: #404A33;
-    --md-sys-color-on-secondary-container: #DCE7C8;
-
-    --md-sys-color-tertiary: #A0D0CB;
-    --md-sys-color-on-tertiary: #003735;
-    --md-sys-color-tertiary-container: #1F4E4B;
-    --md-sys-color-on-tertiary-container: #BCECE7;
-
-    --md-sys-color-error: #FFB4AB;
-    --md-sys-color-on-error: #690005;
-    --md-sys-color-error-container: #93000A;
-    --md-sys-color-on-error-container: #FFDAD6;
-  }
 }
