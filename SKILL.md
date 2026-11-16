@@ -1,6 +1,6 @@
 ---
-name: m3-pro
-description: "Production-grade Material 3 Expressive (M3X) design and engineering skill. Provides authoritative tokens, motion physics, 10-step corner radius scale, 35 official expressive shapes, and clean Compose/Web code templates. Zero AI slop, no bureaucratic output shells, and strictly usability-first."
+name: m3-expressive
+description: "Production-grade Material 3 Expressive (M3X) design and engineering skill. Provides authoritative tokens, motion physics, 10-step corner radius scale, 35 official expressive shapes, and clean Flutter/Compose/Web code templates. Zero AI slop, no bureaucratic output shells, and strictly usability-first."
 ---
 
 # Material 3 Expressive (M3-Pro) Engineering & Design Guide
