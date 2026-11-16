@@ -14,8 +14,8 @@
     }
 
     body {
-      background-color: #F7FBF4;
-      color: #181D19;
+      background-color: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
       font-family: var(--md-ref-typeface-plain);
       line-height: 1.5;
       padding: 36px 32px 130px;
@@ -24,9 +24,7 @@
       min-height: 100vh;
     }
 
-    /* ==========================================================================
-       1. Large, Soft, Sweeping Organic Background Waves (Google Pixel Style)
-       ========================================================================== */
+    /* Ambient Soft Organic Background Shapes */
     .bg-canvas-layer {
       position: absolute;
       top: 0;
@@ -44,7 +42,7 @@
       right: -80px;
       width: 680px;
       height: 520px;
-      opacity: 0.55;
+      opacity: 0.45;
     }
 
     .bg-wave-left {
@@ -53,7 +51,7 @@
       left: -120px;
       width: 540px;
       height: 600px;
-      opacity: 0.45;
+      opacity: 0.35;
     }
 
     .bg-wave-bottom-right {
@@ -62,11 +60,11 @@
       right: -100px;
       width: 600px;
       height: 480px;
-      opacity: 0.5;
+      opacity: 0.4;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1120px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -75,9 +73,7 @@
       z-index: 1;
     }
 
-    /* ==========================================================================
-       2. Screen Header
-       ========================================================================== */
+    /* Screen Header: Pure Typography */
     .screen-header {
       display: flex;
       justify-content: space-between;
@@ -86,51 +82,70 @@
       gap: 16px;
     }
 
-    .header-brand {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-
-    /* 6-Sided Cookie Avatar */
-    .cookie-avatar {
-      width: 58px;
-      height: 58px;
-      background-color: #A3F2C2;
-      color: #003820;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      clip-path: url(#cookie-6-clip);
-      flex-shrink: 0;
-      transition: transform var(--md-sys-motion-spring-default-spatial-duration) var(--md-sys-motion-spring-default-spatial);
-    }
-
-    .cookie-avatar:hover {
-      transform: scale(1.06) rotate(4deg);
-    }
-
-    .cookie-avatar svg {
-      width: 32px;
-      height: 32px;
-    }
-
     .screen-title {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 700;
-      color: #181D19;
+      color: var(--md-sys-color-on-surface);
       letter-spacing: -0.4px;
     }
 
     .screen-subtitle {
       font-size: 14px;
-      color: #49454F;
-      margin-top: 3px;
+      color: var(--md-sys-color-on-surface-variant);
+      margin-top: 4px;
     }
 
-    /* ==========================================================================
-       3. Stat Cards: Soft Mint Background, 100% Exact Watermarks
-       ========================================================================== */
+    /* Split Button Styling */
+    .m3-split-button {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(99, 160, 2, 0.2);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .m3-split-button:hover {
+      box-shadow: 0 4px 14px rgba(99, 160, 2, 0.32);
+      transform: translateY(-1px);
+    }
+
+    .m3-split-primary {
+      border: none;
+      background-color: var(--md-sys-color-primary);
+      color: var(--md-sys-color-on-primary);
+      padding: 11px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.15s ease;
+    }
+
+    .m3-split-primary:hover {
+      background-color: #6EB202;
+    }
+
+    .m3-split-trailing {
+      border: none;
+      background-color: #558B00;
+      color: var(--md-sys-color-on-primary);
+      padding: 11px 12px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-left: 1px solid rgba(255, 255, 255, 0.25);
+      transition: background-color 0.15s ease;
+    }
+
+    .m3-split-trailing:hover {
+      background-color: #4C7D00;
+    }
+
+    /* Metric Cards Grid */
     .data-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -139,23 +154,24 @@
 
     .metric-card {
       position: relative;
-      background-color: #EBF2E8; /* Soft pale mint surface */
-      border-radius: 26px; /* Soft extra-large-increased corner */
-      padding: 24px 28px;
+      background-color: var(--md-sys-color-surface-bright);
+      border-radius: 24px;
+      padding: 24px 26px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       min-height: 154px;
-      border: 1px solid #C4D6C4;
+      border: 1px solid #E1E8DC;
       overflow: hidden;
-      box-shadow: 0 1px 3px rgba(27, 107, 70, 0.04);
+      box-shadow: 0 2px 10px rgba(35, 60, 10, 0.04);
       transition: transform var(--md-sys-motion-spring-fast-spatial-duration) var(--md-sys-motion-spring-fast-spatial),
                   box-shadow var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects);
     }
 
     .metric-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(27, 107, 70, 0.08);
+      box-shadow: 0 8px 20px rgba(35, 60, 10, 0.08);
+      border-color: #CCD8C5;
     }
 
     .metric-header {
@@ -170,8 +186,8 @@
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      background-color: #C8E6D0;
-      color: #0A4D2E;
+      background-color: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -186,7 +202,7 @@
     .metric-label {
       font-size: 13px;
       font-weight: 600;
-      color: #49454F;
+      color: var(--md-sys-color-on-surface-variant);
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
@@ -203,12 +219,12 @@
     .metric-value {
       font-size: 38px;
       font-weight: 700;
-      color: #0B4F2D;
+      color: #1F3800;
       letter-spacing: -0.8px;
       line-height: 1.1;
     }
 
-    /* --- Exact 100% Watermark Styles: Anchored at Right-Bottom --- */
+    /* Watermark Graphic Container */
     .metric-watermark-wrapper {
       position: absolute;
       right: 0;
@@ -238,9 +254,7 @@
       display: block;
     }
 
-    /* ==========================================================================
-       4. Controls Bar & Connected Button Group
-       ========================================================================== */
+    /* Controls Bar & Connected Button Group */
     .controls-bar {
       display: flex;
       justify-content: space-between;
@@ -253,11 +267,11 @@
     .m3-connected-button-group {
       display: inline-flex;
       align-items: center;
-      padding: 3px;
-      gap: 2px;
-      background-color: #E2ECE0;
+      padding: 4px;
+      gap: 3px;
+      background-color: var(--md-sys-color-surface-container);
       border-radius: 18px;
-      border: 1px solid #C4D6C4;
+      border: 1px solid #DCE5D6;
     }
 
     .m3-connected-button-group .m3-group-button {
@@ -266,17 +280,13 @@
       gap: 8px;
       border: none;
       background: transparent;
-      padding: 9px 18px;
-      font-family: var(--md-ref-typeface-brand);
+      padding: 8px 16px;
       font-size: 14px;
       font-weight: 500;
-      line-height: 20px;
-      color: #414942;
-      border-radius: 6px;
+      color: var(--md-sys-color-on-surface-variant);
+      border-radius: 8px;
       cursor: pointer;
-      transition: border-radius var(--md-sys-motion-spring-fast-spatial-duration) var(--md-sys-motion-spring-fast-spatial),
-                  background-color var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects),
-                  color var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects);
+      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
     }
 
     .m3-connected-button-group .m3-group-button svg {
@@ -285,21 +295,22 @@
     }
 
     .m3-connected-button-group .m3-group-button:hover:not(.selected) {
-      background-color: rgba(65, 73, 66, 0.08);
-      color: #181D19;
+      background-color: rgba(99, 160, 2, 0.08);
+      color: var(--md-sys-color-on-surface);
     }
 
     .m3-connected-button-group .m3-group-button.selected {
       border-radius: 14px;
-      background-color: #C2E2C8;
-      color: #0A4D2E;
+      background-color: #FFFFFF;
+      color: #244100;
       font-weight: 700;
+      box-shadow: 0 1px 4px rgba(35, 60, 10, 0.1);
     }
 
     .counter-badge {
       font-size: 13px;
       font-weight: 500;
-      color: #717971;
+      color: var(--md-sys-color-outline);
       display: flex;
       align-items: center;
       gap: 6px;
@@ -310,16 +321,14 @@
       height: 16px;
     }
 
-    /* ==========================================================================
-       5. Data Table: White Body, Light Mint Header
-       ========================================================================== */
+    /* Data Table */
     .table-container {
       width: 100%;
       overflow: hidden;
       border-radius: 20px;
       background-color: #FFFFFF;
-      border: 1px solid #C4D6C4;
-      box-shadow: 0 1px 4px rgba(27, 107, 70, 0.04);
+      border: 1px solid #E1E8DC;
+      box-shadow: 0 2px 8px rgba(35, 60, 10, 0.04);
     }
 
     table {
@@ -330,22 +339,23 @@
     }
 
     th {
-      background-color: #E2ECE0;
-      color: #181D19;
+      background-color: #F1F6EC;
+      color: #171D15;
       padding: 16px 20px;
       font-weight: 700;
       letter-spacing: 0.1px;
+      border-bottom: 1px solid #E1E8DC;
     }
 
     td {
       padding: 16px 20px;
-      border-top: 1px solid #E5EFE4;
-      color: #414942;
+      border-top: 1px solid #EDF3E8;
+      color: var(--md-sys-color-on-surface-variant);
       vertical-align: middle;
     }
 
     tr:hover td {
-      background-color: #F4FAF3;
+      background-color: #F8FCF5;
     }
 
     /* Semantic Status Badges */
@@ -360,13 +370,13 @@
     }
 
     .status-badge.synced {
-      background-color: rgba(27, 107, 70, 0.10);
-      color: #1B6B46;
+      background-color: #E6F8D4;
+      color: #274C01;
     }
 
     .status-badge.syncing {
-      background-color: rgba(60, 100, 114, 0.12);
-      color: #3C6472;
+      background-color: #EFF3EC;
+      color: #4D5749;
     }
 
     .status-dot {
@@ -388,49 +398,38 @@
 </head>
 <body>
 
-  <!-- ==========================================================================
-       Large, Soft, Organic Ambient Shapes Layer
-       ========================================================================== -->
+  <!-- Ambient Organic Waves -->
   <div class="bg-canvas-layer" aria-hidden="true">
-    <!-- Top-Right Sweeping Organic Hill -->
     <svg class="bg-wave-top-right" viewBox="0 0 600 450" fill="none">
-      <path d="M 120 0 C 180 180, 360 320, 600 240 L 600 0 Z" fill="#D3EAD7" />
-      <path d="M 280 0 C 340 140, 460 220, 600 160 L 600 0 Z" fill="#BFE3C6" opacity="0.6" />
+      <path d="M 120 0 C 180 180, 360 320, 600 240 L 600 0 Z" fill="#E8F5DE" />
+      <path d="M 280 0 C 340 140, 460 220, 600 160 L 600 0 Z" fill="#DBEFCF" opacity="0.6" />
     </svg>
 
-    <!-- Left Organic Wave -->
     <svg class="bg-wave-left" viewBox="0 0 500 550" fill="none">
-      <path d="M 0 100 C 160 160, 220 380, 0 480 Z" fill="#D8EEDC" />
+      <path d="M 0 100 C 160 160, 220 380, 0 480 Z" fill="#EAF6E3" />
     </svg>
 
-    <!-- Bottom-Right Sweeping Curve -->
     <svg class="bg-wave-bottom-right" viewBox="0 0 550 400" fill="none">
-      <path d="M 200 400 C 260 260, 420 180, 550 200 L 550 400 Z" fill="#D4ECD8" />
+      <path d="M 200 400 C 260 260, 420 180, 550 200 L 550 400 Z" fill="#E6F4DD" />
     </svg>
   </div>
-
-  <!-- SVG Definition for Official 6-Sided Cookie Shape -->
-  <svg width="0" height="0" style="position: absolute;">
-    <defs>
-      <clipPath id="cookie-6-clip" clipPathUnits="objectBoundingBox">
-        <path d="M 0.50 0.98 C 0.58 0.98, 0.68 0.93, 0.74 0.88 C 0.81 0.82, 0.90 0.82, 0.95 0.75 C 0.99 0.68, 0.97 0.58, 0.97 0.50 C 0.97 0.42, 0.99 0.32, 0.95 0.25 C 0.90 0.18, 0.81 0.18, 0.74 0.12 C 0.68 0.07, 0.58 0.02, 0.50 0.02 C 0.42 0.02, 0.32 0.07, 0.26 0.12 C 0.19 0.18, 0.10 0.18, 0.05 0.25 C 0.01 0.32, 0.03 0.42, 0.03 0.50 C 0.03 0.58, 0.01 0.68, 0.05 0.75 C 0.10 0.82, 0.19 0.82, 0.26 0.88 C 0.32 0.93, 0.42 0.98, 0.50 0.98 Z" />
-      </clipPath>
-    </defs>
-  </svg>
 
   <div class="container">
     <!-- Screen Header -->
     <header class="screen-header">
-      <div class="header-brand">
-        <div>
-          <h1 class="screen-title">Nhật ký điều hướng vệ tinh</h1>
-          <p class="screen-subtitle">Theo dõi trạng thái kết nối Garmin và lộ trình thời gian thực</p>
-        </div>
+      <div>
+        <h1 class="screen-title">Nhật ký điều hướng vệ tinh</h1>
+        <p class="screen-subtitle">Theo dõi trạng thái kết nối Garmin và lộ trình thời gian thực</p>
       </div>
 
-      <!-- Split Button -->
+      <!-- Split Button with True #63A002 -->
       <div class="m3-split-button" id="exportSplit">
-        <button class="m3-split-primary" id="btnExport">Xuất dữ liệu GPX</button>
+        <button class="m3-split-primary" id="btnExport">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+          </svg>
+          Xuất dữ liệu GPX
+        </button>
         <button class="m3-split-trailing" id="btnToggleMenu" aria-label="Tùy chọn xuất khác">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
             <path d="M7 10l5 5 5-5z"/>
@@ -439,9 +438,9 @@
       </div>
     </header>
 
-    <!-- Metrics Row (Soft Mint Surface Container with Custom Watermarks) -->
+    <!-- Metrics Row -->
     <section class="data-grid">
-      <!-- Card 1: Distance with 100% Exact S-Curve Road from User Crop -->
+      <!-- Card 1: Distance -->
       <div class="metric-card">
         <div class="metric-header">
           <div class="metric-icon-badge">
@@ -454,18 +453,17 @@
         <div class="metric-value-row">
           <span class="metric-value">42.8 km</span>
         </div>
-        <!-- 100% Authentic Watermark Asset Extracted Directly from Reference Image -->
         <div class="metric-watermark-wrapper" aria-hidden="true">
-          <img src="assets/watermark-road.png" alt="" class="metric-watermark-img" />
+          <img src="assets/watermark-road-clean.png" alt="" class="metric-watermark-img" />
         </div>
       </div>
 
-      <!-- Card 2: Speed (100% Exact to ChatGPT Original Reference: Soft Rounded Speed Bars + Background Hill) -->
+      <!-- Card 2: Speed -->
       <div class="metric-card">
         <div class="metric-header">
           <div class="metric-icon-badge">
             <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.27-10.43zM10.59 15.41a2 2 0 1 1 2.83-2.83l2.83-4.24a.5.5 0 0 0-.71-.71l-4.24 2.83a2 2 0 0 1-.71 4.95z"/>
+              <path d="M20.38 8.57l-1.23 1.85a8 8 0 0 1-.22 7.58H5.07A8 8 0 0 1 15.58 6.85l1.85-1.23A10 10 0 0 0 3.35 19a2 2 0 0 0 1.72 1h13.85a2 2 0 0 0 1.74-1 10 10 0 0 0-.28-10.43zM10.59 15.41a2 2 0 0 0 2.83 0l5.66-8.49-8.49 5.66a2 2 0 0 0 0 2.83z"/>
             </svg>
           </div>
           <span class="metric-label">Tốc độ trung bình</span>
@@ -473,35 +471,22 @@
         <div class="metric-value-row">
           <span class="metric-value">26.4 km/h</span>
         </div>
-        <!-- Aerodynamic Wind / Speed Streaks (Thick ribbon weight matching Card 1, distinct from Card 3 signal bars) -->
         <div class="metric-watermark-wrapper" aria-hidden="true">
-          <svg class="metric-watermark-svg" viewBox="0 0 240 154" fill="none">
-            <!-- Organic background hill -->
-            <path d="M 185 0 C 190 45, 155 85, 168 120 C 176 140, 200 150, 225 154 L 240 154 L 240 0 Z" fill="#D3EAD7" opacity="0.4" />
-            
-            <!-- Thick Aerodynamic Speed Trails (matching road ribbon thickness) -->
-            <g>
-              <!-- Top Streak -->
-              <path d="M 125 58 C 155 56, 185 62, 225 60" stroke="#6EAF7B" stroke-width="14" stroke-linecap="round" opacity="0.38"/>
-              
-              <!-- Middle Leading Dash -->
-              <path d="M 50 88 L 66 88" stroke="#6EAF7B" stroke-width="18" stroke-linecap="round" opacity="0.45"/>
-              <!-- Main Middle Power Streak -->
-              <path d="M 86 88 C 135 85, 175 92, 225 90" stroke="#6EAF7B" stroke-width="18" stroke-linecap="round" opacity="0.45"/>
-              
-              <!-- Bottom Streak -->
-              <path d="M 115 118 C 150 115, 185 122, 225 120" stroke="#6EAF7B" stroke-width="16" stroke-linecap="round" opacity="0.40"/>
-            </g>
+          <svg class="metric-watermark-svg" viewBox="0 0 240 140" fill="none">
+            <line x1="20" y1="45" x2="230" y2="45" stroke="#63A002" stroke-width="16" stroke-linecap="round" opacity="0.22" />
+            <line x1="75" y1="80" x2="230" y2="80" stroke="#63A002" stroke-width="16" stroke-linecap="round" opacity="0.22" />
+            <line x1="120" y1="115" x2="230" y2="115" stroke="#63A002" stroke-width="14" stroke-linecap="round" opacity="0.20" />
+            <circle cx="48" cy="80" r="8" fill="#63A002" opacity="0.22" />
           </svg>
         </div>
       </div>
 
-      <!-- Card 3: Latency with 4 Rounded Signal Bars (Exact like ChatGPT screenshot) -->
+      <!-- Card 3: Network Latency -->
       <div class="metric-card">
         <div class="metric-header">
           <div class="metric-icon-badge">
             <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
             </svg>
           </div>
           <span class="metric-label">Độ trễ truyền tin</span>
@@ -509,42 +494,35 @@
         <div class="metric-value-row">
           <span class="metric-value">120 ms</span>
         </div>
-        <!-- 4 Soft Vertical Signal Bars exactly like ChatGPT image -->
         <div class="metric-watermark-wrapper" aria-hidden="true">
-          <svg class="metric-watermark-svg" viewBox="0 0 240 154" fill="none">
-            <!-- Organic background hill -->
-            <path d="M 195 0 C 200 45, 165 85, 175 120 C 182 140, 205 150, 225 154 L 240 154 L 240 0 Z" fill="#D3EAD7" opacity="0.4" />
-            
-            <!-- 4 Rounded Pill Bars -->
-            <g transform="translate(130, 48)" fill="#74B584" opacity="0.45">
-              <rect x="0"  y="58" width="14" height="30" rx="7" />
-              <rect x="22" y="42" width="14" height="46" rx="7" />
-              <rect x="44" y="24" width="14" height="64" rx="7" />
-              <rect x="66" y="4"  width="14" height="84" rx="7" />
-            </g>
+          <svg class="metric-watermark-svg" viewBox="0 0 240 140" fill="none">
+            <rect x="75" y="88" width="16" height="42" rx="8" fill="#63A002" opacity="0.22" />
+            <rect x="110" y="65" width="16" height="65" rx="8" fill="#63A002" opacity="0.22" />
+            <rect x="145" y="42" width="16" height="88" rx="8" fill="#63A002" opacity="0.22" />
+            <rect x="180" y="20" width="16" height="110" rx="8" fill="#63A002" opacity="0.22" />
           </svg>
         </div>
       </div>
     </section>
 
-    <!-- Controls Bar with Connected Button Group -->
-    <div class="controls-bar">
-      <div class="m3-connected-button-group" id="filterGroup">
-        <button class="m3-group-button selected" data-filter="all">
+    <!-- Controls Bar -->
+    <section class="controls-bar">
+      <div class="m3-connected-button-group" role="tablist">
+        <button class="m3-group-button selected" role="tab" aria-selected="true">
           <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+            <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
           </svg>
           Tất cả chuyến đi
         </button>
-        <button class="m3-group-button" data-filter="recording">
+        <button class="m3-group-button" role="tab" aria-selected="false">
           <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.08 3.11H5.77L6.85 7zM19 17H5v-4.66l.12-.34h13.77l.11.34V17z"/>
+            <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
           </svg>
           Đang ghi nhận
         </button>
-        <button class="m3-group-button" data-filter="archived">
+        <button class="m3-group-button" role="tab" aria-selected="false">
           <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM12 17.5L6.5 12H10v-2h4v2h3.5L12 17.5zM5.12 5l.81-1h12l.94 1H5.12z"/>
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/>
           </svg>
           Lưu trữ ngoại tuyến
         </button>
@@ -554,12 +532,12 @@
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
         </svg>
-        <span>3 mục hiển thị</span>
+        3 mục hiển thị
       </div>
-    </div>
+    </section>
 
-    <!-- Data Table Container (Clean White Body with Mint Header) -->
-    <main class="table-container">
+    <!-- Data Table -->
+    <section class="table-container">
       <table>
         <thead>
           <tr>
@@ -571,7 +549,7 @@
         </thead>
         <tbody>
           <tr>
-            <td style="font-family: var(--md-ref-typeface-mono); font-weight: 600;">07:15:22</td>
+            <td>07:15:22</td>
             <td>Ngã tư Hàng Xanh, Bình Thạnh</td>
             <td>Khu Công nghệ cao, TP. Thủ Đức</td>
             <td>
@@ -582,7 +560,7 @@
             </td>
           </tr>
           <tr>
-            <td style="font-family: var(--md-ref-typeface-mono); font-weight: 600;">12:30:45</td>
+            <td>12:30:45</td>
             <td>Cầu Bến Lức, Long An</td>
             <td>Chợ nổi Cái Răng, Cần Thơ</td>
             <td>
@@ -593,7 +571,7 @@
             </td>
           </tr>
           <tr>
-            <td style="font-family: var(--md-ref-typeface-mono); font-weight: 600;">18:05:10</td>
+            <td>18:05:10</td>
             <td>Vòng xoay An Lạc, Bình Tân</td>
             <td>Cảng cá Ba Tri, Bến Tre</td>
             <td>
@@ -605,58 +583,47 @@
           </tr>
         </tbody>
       </table>
-    </main>
+    </section>
   </div>
 
-  <!-- Official Floating Toolbar (64px, 32px radius, pill buttons) -->
-  <nav class="m3-floating-toolbar" aria-label="Thanh công cụ tác vụ nhanh">
-    <button class="m3-toolbar-action active" aria-label="Bản đồ lộ trình">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/>
+  <!-- Floating Toolbar -->
+  <nav class="m3-floating-toolbar" aria-label="Thao tác nhanh">
+    <button class="m3-toolbar-action active" title="Làm mới">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
       </svg>
     </button>
-    <button class="m3-toolbar-action" aria-label="Tìm kiếm trạm dừng">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <button class="m3-toolbar-action" title="Bộ lọc nâng cao">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
       </svg>
     </button>
-    <button class="m3-toolbar-action" aria-label="Đồng bộ Garmin">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0020 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 004 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
-      </svg>
-    </button>
-    <button class="m3-toolbar-action" aria-label="Cài đặt">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58a.49.49 0 00.12-.61l-1.92-3.32a.488.488 0 00-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54a.484.484 0 00-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58a.49.49 0 00-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+    <button class="m3-toolbar-action" title="Cài đặt">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
       </svg>
     </button>
   </nav>
 
   <script>
-    // 1. Connected Button Group Morph Logic
-    const filterButtons = document.querySelectorAll('#filterGroup .m3-group-button');
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
+    // Tab switching interaction
+    const tabs = document.querySelectorAll('.m3-group-button');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('selected'));
+        tab.classList.add('selected');
       });
     });
 
-    // 2. Split Button Menu Dropdown Toggle
-    const splitButton = document.getElementById('exportSplit');
-    const toggleBtn = document.getElementById('btnToggleMenu');
-    toggleBtn.addEventListener('click', () => {
-      splitButton.classList.toggle('open');
-    });
-
-    // 3. Floating Toolbar Active Toggle
-    const toolbarActions = document.querySelectorAll('.m3-toolbar-action');
-    toolbarActions.forEach(action => {
-      action.addEventListener('click', () => {
-        toolbarActions.forEach(a => a.classList.remove('active'));
-        action.classList.add('active');
+    // Split button toggle interaction
+    const btnToggle = document.getElementById('btnToggleMenu');
+    const splitContainer = document.getElementById('exportSplit');
+    if (btnToggle && splitContainer) {
+      btnToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        splitContainer.classList.toggle('open');
       });
-    });
+    }
   </script>
 </body>
 </html>
