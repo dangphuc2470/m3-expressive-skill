@@ -1,116 +1,123 @@
 /**
- * Material 3 Expressive Standard CSS Design Tokens
- * Direct mapping from Google Material 3 Design Kit & Motion Specs
+ * Material Design 3 (M3 Expressive) - Core Design Tokens CSS
+ * Seed Color: #63A002 (Calculated via Google Material Color Utilities HCT)
  */
 
 :root {
-  /* --- 1. Typography Fonts --- */
-  --md-ref-typeface-brand: "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --md-ref-typeface-plain: "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --md-ref-typeface-mono: "Roboto Mono", ui-monospace, monospace;
-
-  /* --- 2. Color Palette (Light - Botanical Forest) --- */
-  --md-sys-color-primary: #1B6B46;
-  --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #A3F2C2;
-  --md-sys-color-on-primary-container: #002111;
-
-  --md-sys-color-secondary: #4F6354;
-  --md-sys-color-on-secondary: #FFFFFF;
-  --md-sys-color-secondary-container: #D2E8D5;
-  --md-sys-color-on-secondary-container: #0D1F13;
-
-  --md-sys-color-tertiary: #3C6472;
-  --md-sys-color-on-tertiary: #FFFFFF;
-  --md-sys-color-tertiary-container: #BFE9F9;
-  --md-sys-color-on-tertiary-container: #001F28;
-
-  --md-sys-color-surface: #F7FBF4;
-  --md-sys-color-surface-dim: #D7DCD5;
-  --md-sys-color-surface-bright: #F7FBF4;
-  --md-sys-color-on-surface: #181D19;
-  --md-sys-color-on-surface-variant: #414942;
-
-  /* The 5 Surface Container Tiers (Light) */
+  /* Surface Containers - 5 Levels of Tone Elevation */
+  --md-sys-color-surface-dim: #DDDED6;
+  --md-sys-color-surface: #FDFCF5;
+  --md-sys-color-surface-bright: #FDFCF5;
   --md-sys-color-surface-container-lowest: #FFFFFF;
-  --md-sys-color-surface-container-low: #F1F5EE;
-  --md-sys-color-surface-container: #EBEFE8;
-  --md-sys-color-surface-container-high: #E5EAE2;
-  --md-sys-color-surface-container-highest: #DFE4DD;
+  --md-sys-color-surface-container-low: #F7F7EF;
+  --md-sys-color-surface-container: #F2F1E9;
+  --md-sys-color-surface-container-high: #ECECE3;
+  --md-sys-color-surface-container-highest: #E6E6DE;
 
-  --md-sys-color-outline: #717971;
-  --md-sys-color-outline-variant: #C0C9BF;
+  /* Content & Borders */
+  --md-sys-color-on-surface: #1B1C18;
+  --md-sys-color-on-surface-variant: #44483D;
+  --md-sys-color-outline: #75796C;
+  --md-sys-color-outline-variant: #C5C8BA;
 
-  /* --- 3. The 10-Step Corner Radius Scale --- */
+  /* Primary Accent (Seed: #63A002) */
+  --md-sys-color-primary: #3F6900;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #B2F65F;
+  --md-sys-color-on-primary-container: #102000;
+
+  /* Secondary Accent */
+  --md-sys-color-secondary: #586249;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #DCE7C8;
+  --md-sys-color-on-secondary-container: #151E0B;
+
+  /* Tertiary Accent */
+  --md-sys-color-tertiary: #386663;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #BCECE7;
+  --md-sys-color-on-tertiary-container: #00201E;
+
+  /* Error Feedback */
+  --md-sys-color-error: #BA1A1A;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-error-container: #FFDAD6;
+  --md-sys-color-on-error-container: #410002;
+
+  /* Inverse */
+  --md-sys-color-inverse-surface: #30312C;
+  --md-sys-color-inverse-on-surface: #F2F1E9;
+  --md-sys-color-inverse-primary: #97D945;
+
+  /* Shape Tokens */
   --md-sys-shape-corner-none: 0px;
   --md-sys-shape-corner-extra-small: 4px;
   --md-sys-shape-corner-small: 8px;
   --md-sys-shape-corner-medium: 12px;
   --md-sys-shape-corner-large: 16px;
-  --md-sys-shape-corner-large-increased: 20px; /* M3 Expressive */
   --md-sys-shape-corner-extra-large: 28px;
-  --md-sys-shape-corner-extra-large-increased: 32px; /* M3 Expressive: Floating Toolbar */
-  --md-sys-shape-corner-extra-extra-large: 48px; /* M3 Expressive: Large Cards & Sheets */
   --md-sys-shape-corner-full: 9999px;
 
-  /* --- 4. Motion Physics (Spring Cubic-Bezier & Durations) --- */
-  /* Spatial Springs: Allows soft overshoot for position, scale, and shape */
-  --md-sys-motion-spring-fast-spatial: cubic-bezier(0.42, 1.67, 0.21, 0.90);
-  --md-sys-motion-spring-fast-spatial-duration: 350ms;
+  /* Motion Physics - Durations */
+  --md-sys-motion-duration-short1: 50ms;
+  --md-sys-motion-duration-short2: 100ms;
+  --md-sys-motion-duration-short3: 150ms;
+  --md-sys-motion-duration-short4: 200ms;
+  --md-sys-motion-duration-medium1: 250ms;
+  --md-sys-motion-duration-medium2: 300ms;
+  --md-sys-motion-duration-medium3: 350ms;
+  --md-sys-motion-duration-medium4: 400ms;
+  --md-sys-motion-duration-long1: 450ms;
+  --md-sys-motion-duration-long2: 500ms;
+  --md-sys-motion-duration-long3: 550ms;
+  --md-sys-motion-duration-long4: 600ms;
 
-  --md-sys-motion-spring-default-spatial: cubic-bezier(0.38, 1.21, 0.22, 1.00);
-  --md-sys-motion-spring-default-spatial-duration: 500ms;
-
-  --md-sys-motion-spring-slow-spatial: cubic-bezier(0.39, 1.29, 0.35, 0.98);
-  --md-sys-motion-spring-slow-spatial-duration: 650ms;
-
-  /* Effects Springs: Zero overshoot, critically damped for colors and opacity */
-  --md-sys-motion-spring-fast-effects: cubic-bezier(0.31, 0.94, 0.34, 1.00);
-  --md-sys-motion-spring-fast-effects-duration: 150ms;
-
-  --md-sys-motion-spring-default-effects: cubic-bezier(0.34, 0.80, 0.34, 1.00);
-  --md-sys-motion-spring-default-effects-duration: 200ms;
-
-  --md-sys-motion-spring-slow-effects: cubic-bezier(0.34, 0.88, 0.34, 1.00);
-  --md-sys-motion-spring-slow-effects-duration: 300ms;
-
-  /* --- 5. Elevation Shadows --- */
-  --md-sys-elevation-level1: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
-  --md-sys-elevation-level2: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
-  --md-sys-elevation-level3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.30);
+  /* Motion Physics - Easing Curves */
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
 }
 
+/* Dark Theme Overlay */
 @media (prefers-color-scheme: dark) {
   :root {
-    --md-sys-color-primary: #88D5A7;
-    --md-sys-color-on-primary: #003820;
-    --md-sys-color-primary-container: #005232;
-    --md-sys-color-on-primary-container: #A3F2C2;
+    --md-sys-color-surface-dim: #13140F;
+    --md-sys-color-surface: #13140F;
+    --md-sys-color-surface-bright: #3A3A34;
+    --md-sys-color-surface-container-lowest: #0E0F0B;
+    --md-sys-color-surface-container-low: #1B1C18;
+    --md-sys-color-surface-container: #1F201B;
+    --md-sys-color-surface-container-high: #2A2A25;
+    --md-sys-color-surface-container-highest: #353530;
 
-    --md-sys-color-secondary: #B6CCBA;
-    --md-sys-color-on-secondary: #223528;
-    --md-sys-color-secondary-container: #384B3D;
-    --md-sys-color-on-secondary-container: #D2E8D5;
+    --md-sys-color-on-surface: #E3E3DB;
+    --md-sys-color-on-surface-variant: #C5C8BA;
+    --md-sys-color-outline: #8F9285;
+    --md-sys-color-outline-variant: #44483D;
 
-    --md-sys-color-tertiary: #A3CDDC;
-    --md-sys-color-on-tertiary: #053542;
-    --md-sys-color-tertiary-container: #234C5A;
-    --md-sys-color-on-tertiary-container: #BFE9F9;
+    --md-sys-color-primary: #97D945;
+    --md-sys-color-on-primary: #1F3700;
+    --md-sys-color-primary-container: #2F4F00;
+    --md-sys-color-on-primary-container: #B2F65F;
 
-    --md-sys-color-surface: #101411;
-    --md-sys-color-surface-dim: #101411;
-    --md-sys-color-surface-bright: #363A36;
-    --md-sys-color-on-surface: #DFE4DD;
-    --md-sys-color-on-surface-variant: #C0C9BF;
+    --md-sys-color-secondary: #BFCBAD;
+    --md-sys-color-on-secondary: #2A331E;
+    --md-sys-color-secondary-container: #404A33;
+    --md-sys-color-on-secondary-container: #DCE7C8;
 
-    /* The 5 Surface Container Tiers (Dark) */
-    --md-sys-color-surface-container-lowest: #0B0F0C;
-    --md-sys-color-surface-container-low: #181D19;
-    --md-sys-color-surface-container: #1C211D;
-    --md-sys-color-surface-container-high: #272B27;
-    --md-sys-color-surface-container-highest: #313631;
+    --md-sys-color-tertiary: #A0D0CB;
+    --md-sys-color-on-tertiary: #003735;
+    --md-sys-color-tertiary-container: #1F4E4B;
+    --md-sys-color-on-tertiary-container: #BCECE7;
 
-    --md-sys-color-outline: #8B938A;
-    --md-sys-color-outline-variant: #414942;
+    --md-sys-color-error: #FFB4AB;
+    --md-sys-color-on-error: #690005;
+    --md-sys-color-error-container: #93000A;
+    --md-sys-color-on-error-container: #FFDAD6;
+
+    --md-sys-color-inverse-surface: #E3E3DB;
+    --md-sys-color-inverse-on-surface: #30312C;
+    --md-sys-color-inverse-primary: #3F6900;
   }
 }
