@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bảng điều khiển giám sát hành trình</title>
-  <link rel="stylesheet" href="tokens.css">
-  <link rel="stylesheet" href="components.css">
   <style>
     * {
       box-sizing: border-box;
@@ -14,17 +12,17 @@
     }
 
     body {
-      background-color: var(--md-sys-color-surface);
-      color: var(--md-sys-color-on-surface);
-      font-family: var(--md-ref-typeface-plain);
+      background-color: #F9FAF6;
+      color: #151E16;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       line-height: 1.5;
-      padding: 36px 32px 130px;
+      padding: 44px 40px 70px;
       position: relative;
       overflow-x: hidden;
       min-height: 100vh;
     }
 
-    /* Ambient Expressive Geometric Background Playground */
+    /* Ambient Soft Organic Background Sweeps */
     .bg-canvas-layer {
       position: absolute;
       top: 0;
@@ -36,77 +34,40 @@
       overflow: hidden;
     }
 
-    /* 1. Large Top-Right Cookie-6 & Wave */
-    .bg-shape-top-right {
+    .bg-wave-top-right {
       position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 520px;
-      height: 480px;
+      top: -100px;
+      right: -100px;
+      width: 760px;
+      height: 580px;
       opacity: 0.55;
     }
 
-    /* 2. Top-Left Floating Arch & Clover */
-    .bg-shape-arch-left {
-      position: absolute;
-      top: 40px;
-      left: -50px;
-      width: 240px;
-      height: 320px;
-      opacity: 0.45;
-      transform: rotate(-12deg);
-    }
-
-    .bg-shape-cookie-mid-left {
-      position: absolute;
-      top: 260px;
-      left: 20px;
-      width: 180px;
-      height: 180px;
-      opacity: 0.40;
-      transform: rotate(25deg);
-    }
-
-    /* 3. Mid-Right Semi-Circle & Fan */
-    .bg-shape-fan-right {
-      position: absolute;
-      top: 240px;
-      right: -40px;
-      width: 260px;
-      height: 260px;
-      opacity: 0.42;
-      transform: rotate(-15deg);
-    }
-
-    .bg-shape-semicircle-mid {
-      position: absolute;
-      top: 480px;
-      right: 40px;
-      width: 190px;
-      height: 190px;
-      opacity: 0.35;
-      transform: rotate(45deg);
-    }
-
-    /* 4. Bottom-Left Sunny Burst */
-    .bg-shape-sunny-bottom-left {
-      position: absolute;
-      bottom: -60px;
-      left: -40px;
-      width: 380px;
-      height: 380px;
-      opacity: 0.45;
-      transform: rotate(18deg);
-    }
-
-    /* 5. Bottom-Right Organic Wave */
     .bg-wave-bottom-right {
       position: absolute;
+      bottom: -120px;
+      right: -120px;
+      width: 680px;
+      height: 520px;
+      opacity: 0.50;
+    }
+
+    .bg-sunny-bottom-left {
+      position: absolute;
       bottom: -70px;
-      right: -80px;
-      width: 580px;
+      left: -90px;
+      width: 420px;
       height: 420px;
-      opacity: 0.48;
+      opacity: 0.40;
+    }
+
+    .bg-arch-mid-left {
+      position: absolute;
+      top: 80px;
+      left: -110px;
+      width: 300px;
+      height: 420px;
+      opacity: 0.30;
     }
 
     .container {
@@ -114,12 +75,12 @@
       margin: 0 auto;
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 26px;
       position: relative;
       z-index: 1;
     }
 
-    /* Screen Header: Pure Typography */
+    /* Header Section */
     .screen-header {
       display: flex;
       justify-content: space-between;
@@ -128,39 +89,45 @@
       gap: 16px;
     }
 
+    .header-text {
+      display: flex;
+      flex-direction: column;
+    }
+
     .screen-title {
       font-size: 28px;
       font-weight: 700;
-      color: var(--md-sys-color-on-surface);
+      color: #121A13;
       letter-spacing: -0.4px;
     }
 
     .screen-subtitle {
-      font-size: 14px;
-      color: var(--md-sys-color-on-surface-variant);
+      font-size: 14.5px;
+      color: #556258;
       margin-top: 4px;
     }
 
-    /* Split Button Styling with Primary #4C662B */
+    /* Split Button (Olive Forest Green Pill #4C662B) */
     .m3-split-button {
       display: inline-flex;
       align-items: center;
-      border-radius: 20px;
+      border-radius: 9999px;
       overflow: hidden;
-      box-shadow: 0 2px 6px rgba(76, 102, 43, 0.2);
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      background-color: #4C662B;
+      box-shadow: 0 2px 6px rgba(45, 65, 25, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .m3-split-button:hover {
-      box-shadow: 0 4px 14px rgba(76, 102, 43, 0.32);
       transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(45, 65, 25, 0.32);
     }
 
     .m3-split-primary {
       border: none;
-      background-color: var(--md-sys-color-primary);
-      color: var(--md-sys-color-on-primary);
-      padding: 11px 20px;
+      background-color: transparent;
+      color: #FFFFFF;
+      padding: 10px 20px;
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
@@ -171,53 +138,63 @@
     }
 
     .m3-split-primary:hover {
-      background-color: #435B26;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .m3-split-primary svg {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
     }
 
     .m3-split-trailing {
       border: none;
-      background-color: #3F5523;
-      color: var(--md-sys-color-on-primary);
-      padding: 11px 12px;
+      background-color: transparent;
+      color: #FFFFFF;
+      padding: 10px 13px;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-left: 1px solid rgba(255, 255, 255, 0.25);
+      border-left: 1px solid rgba(255, 255, 255, 0.22);
       transition: background-color 0.15s ease;
     }
 
     .m3-split-trailing:hover {
-      background-color: #35471D;
+      background-color: rgba(255, 255, 255, 0.08);
     }
 
-    /* Metric Cards Grid */
+    /* 3 Metric Cards */
     .data-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+    }
+
+    @media (max-width: 960px) {
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .metric-card {
       position: relative;
-      background-color: var(--md-sys-color-surface-bright);
+      background-color: #FFFFFF;
       border-radius: 24px;
-      padding: 24px 26px;
+      padding: 26px 28px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      min-height: 154px;
-      border: 1px solid #DFE6DA;
+      min-height: 172px;
+      border: 1px solid #E1ECE3;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(30, 45, 15, 0.04);
-      transition: transform var(--md-sys-motion-spring-fast-spatial-duration) var(--md-sys-motion-spring-fast-spatial),
-                  box-shadow var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects);
+      box-shadow: 0 1px 3px rgba(20, 35, 20, 0.04), 0 4px 12px rgba(20, 35, 20, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     .metric-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(30, 45, 15, 0.08);
-      border-color: #CBD6C4;
+      box-shadow: 0 6px 18px rgba(20, 35, 20, 0.08);
     }
 
     .metric-header {
@@ -232,8 +209,8 @@
       width: 38px;
       height: 38px;
       border-radius: 50%;
-      background-color: var(--md-sys-color-primary-container);
-      color: var(--md-sys-color-on-primary-container);
+      background-color: #CDEDA3;
+      color: #173204;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -241,15 +218,15 @@
     }
 
     .metric-icon-badge svg {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
     }
 
     .metric-label {
       font-size: 13px;
       font-weight: 600;
-      color: var(--md-sys-color-on-surface-variant);
-      letter-spacing: 0.5px;
+      color: #4A584F;
+      letter-spacing: 0.3px;
       text-transform: uppercase;
     }
 
@@ -259,31 +236,28 @@
       justify-content: space-between;
       position: relative;
       z-index: 2;
-      margin-top: 10px;
+      margin-top: 14px;
     }
 
     .metric-value {
-      font-size: 38px;
+      font-size: 42px;
       font-weight: 700;
-      color: #1A260E;
-      letter-spacing: -0.8px;
+      color: #101912;
+      letter-spacing: -0.6px;
       line-height: 1.1;
     }
 
-    /* Watermark Graphic Container */
+    /* Watermark container */
     .metric-watermark-wrapper {
       position: absolute;
       right: 0;
       bottom: 0;
       top: 0;
-      width: 52%;
+      left: 0;
+      width: 100%;
       height: 100%;
       pointer-events: none;
       z-index: 1;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
-      overflow: hidden;
     }
 
     .metric-watermark-svg {
@@ -292,7 +266,7 @@
       display: block;
     }
 
-    /* Controls Bar & Connected Button Group */
+    /* Controls Bar & Connected Pill Tabs */
     .controls-bar {
       display: flex;
       justify-content: space-between;
@@ -305,11 +279,11 @@
     .m3-connected-button-group {
       display: inline-flex;
       align-items: center;
-      padding: 4px;
+      padding: 3px;
       gap: 3px;
-      background-color: var(--md-sys-color-surface-container);
-      border-radius: 18px;
-      border: 1px solid #D8E1D3;
+      background-color: #EAEFEA;
+      border-radius: 9999px;
+      border: 1px solid #DDE6DE;
     }
 
     .m3-connected-button-group .m3-group-button {
@@ -318,37 +292,37 @@
       gap: 8px;
       border: none;
       background: transparent;
-      padding: 8px 16px;
+      padding: 8px 18px;
       font-size: 14px;
       font-weight: 500;
-      color: var(--md-sys-color-on-surface-variant);
-      border-radius: 8px;
+      color: #4C5A50;
+      border-radius: 9999px;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+      transition: all 0.2s ease;
     }
 
     .m3-connected-button-group .m3-group-button svg {
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
     }
 
     .m3-connected-button-group .m3-group-button:hover:not(.selected) {
       background-color: rgba(76, 102, 43, 0.08);
-      color: var(--md-sys-color-on-surface);
+      color: #121A13;
     }
 
     .m3-connected-button-group .m3-group-button.selected {
-      border-radius: 14px;
       background-color: #FFFFFF;
-      color: #32471B;
-      font-weight: 700;
-      box-shadow: 0 1px 4px rgba(30, 45, 15, 0.1);
+      color: #121A13;
+      font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
     }
 
     .counter-badge {
       font-size: 13px;
       font-weight: 500;
-      color: var(--md-sys-color-outline);
+      color: #6A786E;
       display: flex;
       align-items: center;
       gap: 6px;
@@ -357,43 +331,43 @@
     .counter-badge svg {
       width: 16px;
       height: 16px;
+      fill: currentColor;
     }
 
     /* Data Table */
     .table-container {
       width: 100%;
       overflow: hidden;
-      border-radius: 20px;
+      border-radius: 24px;
       background-color: #FFFFFF;
-      border: 1px solid #DFE6DA;
-      box-shadow: 0 2px 8px rgba(30, 45, 15, 0.04);
+      border: 1px solid #E1ECE3;
+      box-shadow: 0 1px 3px rgba(20, 35, 20, 0.04), 0 4px 12px rgba(20, 35, 20, 0.03);
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      font-size: 14px;
+      font-size: 14.5px;
     }
 
     th {
-      background-color: #F0F6EB;
-      color: #181E15;
-      padding: 16px 20px;
+      background-color: #EEF4EC;
+      color: #121A13;
+      padding: 16px 26px;
       font-weight: 700;
       letter-spacing: 0.1px;
-      border-bottom: 1px solid #DFE6DA;
     }
 
     td {
-      padding: 16px 20px;
-      border-top: 1px solid #ECF2E8;
-      color: var(--md-sys-color-on-surface-variant);
+      padding: 18px 26px;
+      border-top: 1px solid #EBF1EA;
+      color: #38463D;
       vertical-align: middle;
     }
 
     tr:hover td {
-      background-color: #F8FCF5;
+      background-color: #F8FAF7;
     }
 
     /* Semantic Status Badges */
@@ -401,159 +375,157 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 5px 12px;
+      padding: 6px 14px;
       border-radius: 9999px;
       font-size: 13px;
       font-weight: 600;
     }
 
     .status-badge.synced {
-      background-color: #E2F2D0;
-      color: #26430C;
+      background-color: #E5F2DD;
+      color: #2E5E22;
+    }
+
+    .status-badge.synced .status-dot {
+      background-color: #3F7A2F;
     }
 
     .status-badge.syncing {
-      background-color: #EDF1E9;
-      color: #4D5749;
+      background-color: #E8EDE7;
+      color: #4C5A50;
+    }
+
+    .status-badge.syncing .status-dot {
+      background-color: #5B6C60;
     }
 
     .status-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background-color: currentColor;
     }
 
-    .status-badge.syncing .status-dot {
-      animation: pulseDot 1.4s infinite ease-in-out;
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
-    }
-
-    /* Floating Toolbar: Primary #4C662B Active State */
-    .m3-floating-toolbar {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
+    /* Bottom Floating Action Navigation Pill */
+    .bottom-nav-wrapper {
       display: flex;
-      align-items: center;
-      height: 60px;
-      padding: 8px 10px;
-      gap: 6px;
-      background-color: #ECF2E8;
-      border: 1px solid #D6E0D0;
-      border-radius: 30px;
-      box-shadow: 0 4px 16px rgba(30, 45, 15, 0.12);
+      justify-content: center;
+      margin-top: 24px;
     }
 
-    .m3-floating-toolbar .m3-toolbar-action {
+    .bottom-nav-pill {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      gap: 22px;
+      background-color: #E8EFE8;
+      border-radius: 9999px;
+      padding: 6px 22px 6px 6px;
+      border: 1px solid #D9E4DA;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .nav-btn-refresh {
       width: 44px;
       height: 44px;
+      border-radius: 50%;
+      background-color: #4C662B;
+      color: #FFFFFF;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(45, 65, 25, 0.28);
+      transition: transform 0.2s ease, background-color 0.15s ease;
+    }
+
+    .nav-btn-refresh:hover {
+      background-color: #3F5623;
+      transform: scale(1.05);
+    }
+
+    .nav-btn-refresh svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .nav-btn-icon {
       border: none;
       background: transparent;
-      border-radius: 50%;
-      color: var(--md-sys-color-on-surface-variant);
+      color: #38463D;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+      padding: 6px;
+      transition: color 0.15s ease, transform 0.15s ease;
     }
 
-    .m3-floating-toolbar .m3-toolbar-action:hover:not(.active) {
-      background-color: rgba(76, 102, 43, 0.1);
-      color: var(--md-sys-color-on-surface);
+    .nav-btn-icon:hover {
+      color: #121A13;
+      transform: scale(1.08);
     }
 
-    .m3-floating-toolbar .m3-toolbar-action.active {
-      background-color: var(--md-sys-color-primary);
-      color: var(--md-sys-color-on-primary);
-      box-shadow: 0 2px 8px rgba(76, 102, 43, 0.25);
+    .nav-btn-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
     }
   </style>
 </head>
 <body>
 
-  <!-- Ambient Expressive Geometric Shapes Background -->
+  <!-- Ambient Background Shapes (Soft, Minimal, M3 Expressive) -->
   <div class="bg-canvas-layer" aria-hidden="true">
-    <!-- Top-Right: Cookie-6 with Organic Sweep -->
-    <svg class="bg-shape-top-right" viewBox="0 0 500 450" fill="none">
-      <path d="M 140 0 C 200 180, 360 300, 500 240 L 500 0 Z" fill="#E8F2DE" />
-      <g transform="translate(280, 40)">
-        <!-- 6-Sided Cookie Shape -->
-        <path d="M 80 15 C 95 15, 115 5, 128 15 C 142 25, 160 25, 168 40 C 176 55, 172 75, 172 90 C 172 105, 176 125, 168 140 C 160 155, 142 155, 128 165 C 115 175, 95 165, 80 165 C 65 165, 45 175, 32 165 C 18 155, 0 155, -8 140 C -16 125, -12 105, -12 90 C -12 75, -16 55, -8 40 C 0 25, 18 25, 32 15 C 45 5, 65 15, 80 15 Z" fill="#DDECD1" opacity="0.65" />
-      </g>
+    <!-- Top-Right Soft Wave -->
+    <svg class="bg-wave-top-right" viewBox="0 0 760 580" fill="none">
+      <path d="M 160 0 C 240 240, 460 390, 760 300 L 760 0 Z" fill="#EEF5ED" />
+      <path d="M 340 0 C 410 180, 560 270, 760 190 L 760 0 Z" fill="#E4EFE3" opacity="0.6" />
     </svg>
 
-    <!-- Top-Left: Arch Shape & Organic Drop -->
-    <svg class="bg-shape-arch-left" viewBox="0 0 200 300" fill="none">
-      <path d="M 30 280 L 30 100 C 30 45, 65 20, 110 20 C 155 20, 190 45, 190 100 L 190 280 Z" fill="#EBF4E2" />
-      <path d="M 50 280 L 50 120 C 50 75, 75 50, 110 50 C 145 50, 170 75, 170 120 L 170 280 Z" fill="#E2F0D4" opacity="0.5" />
+    <!-- Bottom-Right Soft Wave -->
+    <svg class="bg-wave-bottom-right" viewBox="0 0 680 520" fill="none">
+      <path d="M 200 520 C 300 330, 500 220, 680 260 L 680 520 Z" fill="#EEF5ED" />
     </svg>
 
-    <!-- Mid-Left: Floating Clover-4 Shape -->
-    <svg class="bg-shape-cookie-mid-left" viewBox="0 0 160 160" fill="none">
-      <path d="M 80 20 C 95 20, 110 32, 110 48 C 110 58, 102 66, 92 70 C 102 74, 110 82, 110 92 C 110 108, 95 120, 80 120 C 65 120, 50 108, 50 92 C 50 82, 58 74, 68 70 C 58 66, 50 58, 50 48 C 50 32, 65 20, 80 20 Z" fill="#DFEED0" />
-      <circle cx="80" cy="70" r="14" fill="#CDE7B8" opacity="0.6" />
+    <!-- Mid-Left Arch Shape -->
+    <svg class="bg-arch-mid-left" viewBox="0 0 300 420" fill="none">
+      <path d="M 0 70 C 160 70, 230 180, 230 280 C 230 370, 110 420, 0 420 Z" fill="#EEF5ED" />
     </svg>
 
-    <!-- Mid-Right: Fan / Quarter-Circle Shape -->
-    <svg class="bg-shape-fan-right" viewBox="0 0 240 240" fill="none">
-      <path d="M 20 220 L 20 60 C 20 25, 45 10, 80 10 C 150 10, 220 80, 220 150 C 220 185, 205 220, 170 220 Z" fill="#E4F1D7" />
-    </svg>
-
-    <!-- Mid-Right: Semi-Circle Shape -->
-    <svg class="bg-shape-semicircle-mid" viewBox="0 0 180 180" fill="none">
-      <path d="M 20 160 C 20 70, 75 20, 160 20 L 160 160 Z" fill="#DCEFD0" />
-    </svg>
-
-    <!-- Bottom-Left: Sunny 8-Point Burst Shape -->
-    <svg class="bg-shape-sunny-bottom-left" viewBox="0 0 300 300" fill="none">
-      <g transform="translate(150, 150)">
-        <path d="M 0 -100 C 18 -100, 25 -75, 40 -70 C 60 -75, 75 -60, 70 -40 C 75 -25, 100 -18, 100 0 C 100 18, 75 25, 70 40 C 75 60, 60 75, 40 70 C 25 75, 18 100, 0 100 C -18 100, -25 75, -40 70 C -60 75, -75 60, -70 40 C -75 25, -100 18, -100 0 C -100 -18, -75 -25, -70 -40 C -75 -60, -60 -75, -40 -70 C -25 -75, -18 -100, 0 -100 Z" fill="#E8F4DE" />
-        <circle cx="0" cy="0" r="42" fill="#DBEED0" opacity="0.5" />
-      </g>
-    </svg>
-
-    <!-- Bottom-Right: Sweeping Hill -->
-    <svg class="bg-wave-bottom-right" viewBox="0 0 550 400" fill="none">
-      <path d="M 180 400 C 240 250, 420 160, 550 180 L 550 400 Z" fill="#E4F0DA" />
-      <circle cx="420" cy="280" r="65" fill="#D5EAC3" opacity="0.4" />
+    <!-- Bottom-Left Sunny 8-Claw Flower -->
+    <svg class="bg-sunny-bottom-left" viewBox="0 0 420 420" fill="none">
+      <path d="M 210 40 C 240 40, 268 90, 295 72 C 322 52, 360 85, 354 118 C 347 150, 394 177, 380 210 C 367 242, 387 288, 354 308 C 322 328, 315 374, 282 374 C 249 374, 230 334, 197 348 C 164 361, 125 328, 125 295 C 125 262, 79 242, 85 210 C 92 177, 65 131, 98 111 C 131 92, 145 46, 177 42 Z" fill="#EEF5ED" />
     </svg>
   </div>
 
   <div class="container">
-    <!-- Screen Header -->
+    <!-- Screen Header (Clean, without bulky squircle) -->
     <header class="screen-header">
-      <div>
+      <div class="header-text">
         <h1 class="screen-title">Nhật ký điều hướng vệ tinh</h1>
         <p class="screen-subtitle">Theo dõi trạng thái kết nối Garmin và lộ trình thời gian thực</p>
       </div>
 
-      <!-- Split Button with Exact Primary #4C662B -->
+      <!-- Split Button (Olive Forest Green Pill #4C662B) -->
       <div class="m3-split-button" id="exportSplit">
         <button class="m3-split-primary" id="btnExport">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <svg viewBox="0 0 24 24">
             <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
           </svg>
           Xuất dữ liệu GPX
         </button>
         <button class="m3-split-trailing" id="btnToggleMenu" aria-label="Tùy chọn xuất khác">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
             <path d="M7 10l5 5 5-5z"/>
           </svg>
         </button>
       </div>
     </header>
 
-    <!-- Metrics Row -->
+    <!-- 3 Metric Cards Row (White Background, M3 Elevation) -->
     <section class="data-grid">
-      <!-- Card 1: Distance with Pure Vector SVG (Zero aliasing, 100% smooth) -->
+      <!-- Card 1: Distance with Perfect Organic S-Road -->
       <div class="metric-card">
         <div class="metric-header">
           <div class="metric-icon-badge">
@@ -566,14 +538,15 @@
         <div class="metric-value-row">
           <span class="metric-value">42.8 km</span>
         </div>
+        <!-- Perfect Vector S-Road Ribbon extracted directly from reference -->
         <div class="metric-watermark-wrapper" aria-hidden="true">
-          <svg class="metric-watermark-svg" viewBox="0 0 240 140" fill="none">
-            <path d="M 230 38 C 165 32, 115 72, 155 96 C 195 116, 140 134, 45 125" stroke="#4C662B" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" opacity="0.22" />
+          <svg class="metric-watermark-svg" viewBox="0 0 360 180" preserveAspectRatio="none" fill="none">
+            <path d="M 360 48 C 315 48, 276 60, 283 80 C 289 96, 308 98, 298 111 C 285 120, 210 120, 160 120" stroke="#D5DECC" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </div>
       </div>
 
-      <!-- Card 2: Speed with Pure Vector Streaks -->
+      <!-- Card 2: Speed with 3 Motion Streamlines & Lead Dot -->
       <div class="metric-card">
         <div class="metric-header">
           <div class="metric-icon-badge">
@@ -586,22 +559,23 @@
         <div class="metric-value-row">
           <span class="metric-value">26.4 km/h</span>
         </div>
+        <!-- 3 Horizontal Motion Streamlines + Dot extracted from reference -->
         <div class="metric-watermark-wrapper" aria-hidden="true">
-          <svg class="metric-watermark-svg" viewBox="0 0 240 140" fill="none">
-            <line x1="20" y1="45" x2="230" y2="45" stroke="#4C662B" stroke-width="16" stroke-linecap="round" opacity="0.22" />
-            <line x1="75" y1="80" x2="230" y2="80" stroke="#4C662B" stroke-width="16" stroke-linecap="round" opacity="0.22" />
-            <line x1="120" y1="115" x2="230" y2="115" stroke="#4C662B" stroke-width="14" stroke-linecap="round" opacity="0.20" />
-            <circle cx="48" cy="80" r="8" fill="#4C662B" opacity="0.22" />
+          <svg class="metric-watermark-svg" viewBox="0 0 360 180" preserveAspectRatio="none" fill="none">
+            <rect x="228" y="48" width="132" height="11" rx="5.5" fill="#D5DECC" />
+            <circle cx="218" cy="80" r="6" fill="#D5DECC" />
+            <rect x="234" y="75" width="126" height="11" rx="5.5" fill="#D5DECC" />
+            <rect x="268" y="102" width="92" height="11" rx="5.5" fill="#D5DECC" />
           </svg>
         </div>
       </div>
 
-      <!-- Card 3: Network Latency with Pure Vector Signal Bars -->
+      <!-- Card 3: Network Latency with 4 Vertical Signal Bars -->
       <div class="metric-card">
         <div class="metric-header">
           <div class="metric-icon-badge">
             <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
             </svg>
           </div>
           <span class="metric-label">Độ trễ truyền tin</span>
@@ -609,12 +583,13 @@
         <div class="metric-value-row">
           <span class="metric-value">120 ms</span>
         </div>
+        <!-- 4 Vertical Signal Bars extracted directly from reference -->
         <div class="metric-watermark-wrapper" aria-hidden="true">
-          <svg class="metric-watermark-svg" viewBox="0 0 240 140" fill="none">
-            <rect x="75" y="88" width="16" height="42" rx="8" fill="#4C662B" opacity="0.22" />
-            <rect x="110" y="65" width="16" height="65" rx="8" fill="#4C662B" opacity="0.22" />
-            <rect x="145" y="42" width="16" height="88" rx="8" fill="#4C662B" opacity="0.22" />
-            <rect x="180" y="20" width="16" height="110" rx="8" fill="#4C662B" opacity="0.22" />
+          <svg class="metric-watermark-svg" viewBox="0 0 360 180" preserveAspectRatio="none" fill="none">
+            <rect x="240" y="85" width="11" height="34" rx="5.5" fill="#D5DECC" />
+            <rect x="266" y="65" width="11" height="54" rx="5.5" fill="#D5DECC" />
+            <rect x="292" y="45" width="11" height="74" rx="5.5" fill="#D5DECC" />
+            <rect x="318" y="25" width="11" height="94" rx="5.5" fill="#D5DECC" />
           </svg>
         </div>
       </div>
@@ -624,27 +599,27 @@
     <section class="controls-bar">
       <div class="m3-connected-button-group" role="tablist">
         <button class="m3-group-button selected" role="tab" aria-selected="true">
-          <svg viewBox="0 0 24 24" fill="currentColor">
+          <svg viewBox="0 0 24 24">
             <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
           </svg>
           Tất cả chuyến đi
         </button>
         <button class="m3-group-button" role="tab" aria-selected="false">
-          <svg viewBox="0 0 24 24" fill="currentColor">
+          <svg viewBox="0 0 24 24">
             <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
           </svg>
           Đang ghi nhận
         </button>
         <button class="m3-group-button" role="tab" aria-selected="false">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 18H6c-2.21 0-4-1.79-4-4 0-2.05 1.53-3.76 3.56-3.97l1.07-.11.5-.95C8.08 7.14 9.94 6 12 6c2.62 0 4.88 1.86 5.39 4.43l.3 1.5 1.53.11c1.56.1 2.78 1.41 2.78 2.96 0 1.65-1.35 3-3 3z"/>
+          <svg viewBox="0 0 24 24">
+            <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
           </svg>
           Lưu trữ ngoại tuyến
         </button>
       </div>
 
       <div class="counter-badge">
-        <svg viewBox="0 0 24 24" fill="currentColor">
+        <svg viewBox="0 0 24 24">
           <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
         </svg>
         3 mục hiển thị
@@ -699,26 +674,28 @@
         </tbody>
       </table>
     </section>
-  </div>
 
-  <!-- Floating Toolbar with Primary #4C662B Active State -->
-  <nav class="m3-floating-toolbar" aria-label="Thao tác nhanh">
-    <button class="m3-toolbar-action active" title="Làm mới">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
-      </svg>
-    </button>
-    <button class="m3-toolbar-action" title="Bộ lọc nâng cao">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
-      </svg>
-    </button>
-    <button class="m3-toolbar-action" title="Cài đặt">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
-      </svg>
-    </button>
-  </nav>
+    <!-- Bottom Floating Action Navigation Pill -->
+    <div class="bottom-nav-wrapper">
+      <div class="bottom-nav-pill">
+        <button class="nav-btn-refresh" aria-label="Làm mới">
+          <svg viewBox="0 0 24 24">
+            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+          </svg>
+        </button>
+        <button class="nav-btn-icon" aria-label="Bộ lọc">
+          <svg viewBox="0 0 24 24">
+            <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+          </svg>
+        </button>
+        <button class="nav-btn-icon" aria-label="Cài đặt">
+          <svg viewBox="0 0 24 24">
+            <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script>
     // Tab switching interaction
@@ -727,6 +704,7 @@
       tab.addEventListener('click', () => {
         tabs.forEach(t => t.classList.remove('selected'));
         tab.classList.add('selected');
+        tab.setAttribute('aria-selected', 'true');
       });
     });
 
