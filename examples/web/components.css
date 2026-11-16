@@ -1,0 +1,161 @@
+/**
+ * Material 3 Expressive Component Styles
+ * Strictly enforces official Figma specs & concentric corner radius formulas
+ */
+
+/* ==========================================================================
+   1. Floating Toolbar (Google Figma Spec: 64px height, 32px radius, 4px gap)
+   ========================================================================== */
+.m3-floating-toolbar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  
+  display: flex;
+  align-items: center;
+  height: 64px;
+  padding: 12px 8px;
+  gap: 4px;
+  
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-shape-corner-extra-large-increased); /* 32px */
+  box-shadow: var(--md-sys-elevation-level3);
+  
+  /* Smooth spatial entry */
+  transition: transform var(--md-sys-motion-spring-default-spatial-duration) var(--md-sys-motion-spring-default-spatial),
+              opacity var(--md-sys-motion-spring-default-effects-duration) var(--md-sys-motion-spring-default-effects);
+}
+
+.m3-floating-toolbar .m3-toolbar-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  border-radius: var(--md-sys-shape-corner-full); /* 100px pill */
+  color: var(--md-sys-color-on-surface-variant);
+  cursor: pointer;
+  transition: background-color var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects),
+              color var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects);
+}
+
+.m3-floating-toolbar .m3-toolbar-action:hover {
+  background-color: rgba(65, 73, 66, 0.08);
+  color: var(--md-sys-color-on-surface);
+}
+
+.m3-floating-toolbar .m3-toolbar-action.active {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* ==========================================================================
+   2. Connected Button Group (Replaces Segmented Button - 2px gap)
+   ========================================================================== */
+.m3-connected-button-group {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  gap: 2px;
+  background-color: var(--md-sys-color-surface-container-high);
+  border-radius: var(--md-sys-shape-corner-large); /* 16px */
+}
+
+.m3-connected-button-group .m3-group-button {
+  border: none;
+  background: transparent;
+  padding: 8px 16px;
+  font-family: var(--md-ref-typeface-brand);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--md-sys-color-on-surface-variant);
+  border-radius: var(--md-sys-shape-corner-extra-small); /* 4px (square state) */
+  cursor: pointer;
+  
+  /* Spatial spring for shape morph, Effects spring for color */
+  transition: border-radius var(--md-sys-motion-spring-fast-spatial-duration) var(--md-sys-motion-spring-fast-spatial),
+              background-color var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects),
+              color var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects);
+}
+
+.m3-connected-button-group .m3-group-button:hover:not(.selected) {
+  background-color: rgba(65, 73, 66, 0.08);
+}
+
+.m3-connected-button-group .m3-group-button.selected {
+  border-radius: var(--md-sys-shape-corner-medium); /* 12px (rounded state) */
+  background-color: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   3. Split Button (Primary + Trailing Menu with 2px gap)
+   ========================================================================== */
+.m3-split-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.m3-split-button .m3-split-primary {
+  border: none;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  padding: 10px 18px;
+  font-family: var(--md-ref-typeface-brand);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: var(--md-sys-shape-corner-large-increased) var(--md-sys-shape-corner-extra-small) var(--md-sys-shape-corner-extra-small) var(--md-sys-shape-corner-large-increased);
+  cursor: pointer;
+  transition: opacity var(--md-sys-motion-spring-fast-effects-duration) var(--md-sys-motion-spring-fast-effects);
+}
+
+.m3-split-button .m3-split-primary:hover {
+  opacity: 0.92;
+}
+
+.m3-split-button .m3-split-trailing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--md-sys-shape-corner-extra-small) var(--md-sys-shape-corner-large-increased) var(--md-sys-shape-corner-large-increased) var(--md-sys-shape-corner-extra-small);
+  cursor: pointer;
+}
+
+.m3-split-button .m3-split-trailing svg {
+  transition: transform var(--md-sys-motion-spring-default-effects-duration) ease-in-out;
+}
+
+.m3-split-button.open .m3-split-trailing svg {
+  transform: rotate(180deg);
+}
+
+/* ==========================================================================
+   4. Expressive Panel & Concentric Nesting Card
+   ========================================================================== */
+.m3-expressive-card {
+  position: relative;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-shape-corner-extra-large); /* 28px outer */
+  padding: 20px;
+  border: 1px solid var(--md-sys-color-outline-variant);
+}
+
+/* Inner header applies Concentric Formula: 28px outer - 20px padding = 8px inner */
+.m3-expressive-card .m3-inner-header {
+  border-radius: var(--md-sys-shape-corner-small); /* 8px */
+  background-color: var(--md-sys-color-surface-container-high);
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
