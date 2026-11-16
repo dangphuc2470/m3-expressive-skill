@@ -24,7 +24,7 @@
       min-height: 100vh;
     }
 
-    /* Ambient Soft Organic Background Shapes */
+    /* Ambient Expressive Geometric Background Playground */
     .bg-canvas-layer {
       position: absolute;
       top: 0;
@@ -36,31 +36,77 @@
       overflow: hidden;
     }
 
-    .bg-wave-top-right {
+    /* 1. Large Top-Right Cookie-6 & Wave */
+    .bg-shape-top-right {
       position: absolute;
       top: -60px;
-      right: -80px;
-      width: 680px;
-      height: 520px;
-      opacity: 0.45;
+      right: -60px;
+      width: 520px;
+      height: 480px;
+      opacity: 0.55;
     }
 
-    .bg-wave-left {
+    /* 2. Top-Left Floating Arch & Clover */
+    .bg-shape-arch-left {
       position: absolute;
-      top: 140px;
-      left: -120px;
-      width: 540px;
-      height: 600px;
-      opacity: 0.35;
+      top: 40px;
+      left: -50px;
+      width: 240px;
+      height: 320px;
+      opacity: 0.45;
+      transform: rotate(-12deg);
     }
 
+    .bg-shape-cookie-mid-left {
+      position: absolute;
+      top: 260px;
+      left: 20px;
+      width: 180px;
+      height: 180px;
+      opacity: 0.40;
+      transform: rotate(25deg);
+    }
+
+    /* 3. Mid-Right Semi-Circle & Fan */
+    .bg-shape-fan-right {
+      position: absolute;
+      top: 240px;
+      right: -40px;
+      width: 260px;
+      height: 260px;
+      opacity: 0.42;
+      transform: rotate(-15deg);
+    }
+
+    .bg-shape-semicircle-mid {
+      position: absolute;
+      top: 480px;
+      right: 40px;
+      width: 190px;
+      height: 190px;
+      opacity: 0.35;
+      transform: rotate(45deg);
+    }
+
+    /* 4. Bottom-Left Sunny Burst */
+    .bg-shape-sunny-bottom-left {
+      position: absolute;
+      bottom: -60px;
+      left: -40px;
+      width: 380px;
+      height: 380px;
+      opacity: 0.45;
+      transform: rotate(18deg);
+    }
+
+    /* 5. Bottom-Right Organic Wave */
     .bg-wave-bottom-right {
       position: absolute;
-      bottom: -80px;
-      right: -100px;
-      width: 600px;
-      height: 480px;
-      opacity: 0.4;
+      bottom: -70px;
+      right: -80px;
+      width: 580px;
+      height: 420px;
+      opacity: 0.48;
     }
 
     .container {
@@ -433,19 +479,51 @@
 </head>
 <body>
 
-  <!-- Ambient Organic Waves -->
+  <!-- Ambient Expressive Geometric Shapes Background -->
   <div class="bg-canvas-layer" aria-hidden="true">
-    <svg class="bg-wave-top-right" viewBox="0 0 600 450" fill="none">
-      <path d="M 120 0 C 180 180, 360 320, 600 240 L 600 0 Z" fill="#E8F2DE" />
-      <path d="M 280 0 C 340 140, 460 220, 600 160 L 600 0 Z" fill="#DDECD1" opacity="0.6" />
+    <!-- Top-Right: Cookie-6 with Organic Sweep -->
+    <svg class="bg-shape-top-right" viewBox="0 0 500 450" fill="none">
+      <path d="M 140 0 C 200 180, 360 300, 500 240 L 500 0 Z" fill="#E8F2DE" />
+      <g transform="translate(280, 40)">
+        <!-- 6-Sided Cookie Shape -->
+        <path d="M 80 15 C 95 15, 115 5, 128 15 C 142 25, 160 25, 168 40 C 176 55, 172 75, 172 90 C 172 105, 176 125, 168 140 C 160 155, 142 155, 128 165 C 115 175, 95 165, 80 165 C 65 165, 45 175, 32 165 C 18 155, 0 155, -8 140 C -16 125, -12 105, -12 90 C -12 75, -16 55, -8 40 C 0 25, 18 25, 32 15 C 45 5, 65 15, 80 15 Z" fill="#DDECD1" opacity="0.65" />
+      </g>
     </svg>
 
-    <svg class="bg-wave-left" viewBox="0 0 500 550" fill="none">
-      <path d="M 0 100 C 160 160, 220 380, 0 480 Z" fill="#EAF3E2" />
+    <!-- Top-Left: Arch Shape & Organic Drop -->
+    <svg class="bg-shape-arch-left" viewBox="0 0 200 300" fill="none">
+      <path d="M 30 280 L 30 100 C 30 45, 65 20, 110 20 C 155 20, 190 45, 190 100 L 190 280 Z" fill="#EBF4E2" />
+      <path d="M 50 280 L 50 120 C 50 75, 75 50, 110 50 C 145 50, 170 75, 170 120 L 170 280 Z" fill="#E2F0D4" opacity="0.5" />
     </svg>
 
+    <!-- Mid-Left: Floating Clover-4 Shape -->
+    <svg class="bg-shape-cookie-mid-left" viewBox="0 0 160 160" fill="none">
+      <path d="M 80 20 C 95 20, 110 32, 110 48 C 110 58, 102 66, 92 70 C 102 74, 110 82, 110 92 C 110 108, 95 120, 80 120 C 65 120, 50 108, 50 92 C 50 82, 58 74, 68 70 C 58 66, 50 58, 50 48 C 50 32, 65 20, 80 20 Z" fill="#DFEED0" />
+      <circle cx="80" cy="70" r="14" fill="#CDE7B8" opacity="0.6" />
+    </svg>
+
+    <!-- Mid-Right: Fan / Quarter-Circle Shape -->
+    <svg class="bg-shape-fan-right" viewBox="0 0 240 240" fill="none">
+      <path d="M 20 220 L 20 60 C 20 25, 45 10, 80 10 C 150 10, 220 80, 220 150 C 220 185, 205 220, 170 220 Z" fill="#E4F1D7" />
+    </svg>
+
+    <!-- Mid-Right: Semi-Circle Shape -->
+    <svg class="bg-shape-semicircle-mid" viewBox="0 0 180 180" fill="none">
+      <path d="M 20 160 C 20 70, 75 20, 160 20 L 160 160 Z" fill="#DCEFD0" />
+    </svg>
+
+    <!-- Bottom-Left: Sunny 8-Point Burst Shape -->
+    <svg class="bg-shape-sunny-bottom-left" viewBox="0 0 300 300" fill="none">
+      <g transform="translate(150, 150)">
+        <path d="M 0 -100 C 18 -100, 25 -75, 40 -70 C 60 -75, 75 -60, 70 -40 C 75 -25, 100 -18, 100 0 C 100 18, 75 25, 70 40 C 75 60, 60 75, 40 70 C 25 75, 18 100, 0 100 C -18 100, -25 75, -40 70 C -60 75, -75 60, -70 40 C -75 25, -100 18, -100 0 C -100 -18, -75 -25, -70 -40 C -75 -60, -60 -75, -40 -70 C -25 -75, -18 -100, 0 -100 Z" fill="#E8F4DE" />
+        <circle cx="0" cy="0" r="42" fill="#DBEED0" opacity="0.5" />
+      </g>
+    </svg>
+
+    <!-- Bottom-Right: Sweeping Hill -->
     <svg class="bg-wave-bottom-right" viewBox="0 0 550 400" fill="none">
-      <path d="M 200 400 C 260 260, 420 180, 550 200 L 550 400 Z" fill="#E5F0DD" />
+      <path d="M 180 400 C 240 250, 420 160, 550 180 L 550 400 Z" fill="#E4F0DA" />
+      <circle cx="420" cy="280" r="65" fill="#D5EAC3" opacity="0.4" />
     </svg>
   </div>
 
