@@ -26,6 +26,14 @@ This document establishes the boundaries of Material 3 Expressive. During genera
 - **Why It Fails:** Gives the interface a frivolous, casual-game or toy-like appearance, creates visual competition with subordinate card badges, and wastes valuable horizontal header space.
 - **Rule:** Screen Headers in professional tools must rely on **Pure Typography**: a crisp `Headline Medium/Large` (`h1`) paired with a muted `Body Medium` subtitle, aligned cleanly to the left margin. Reserve icons strictly for functional action buttons, navigation items, or status chips.
 
+### 1.5. Prompt Leakage & Meta-Tutorial Copywriting
+- **Anti-Pattern:** Leaking prompt requirements, architectural notes, algorithm names, or tutorial explanations directly into UI labels (e.g., "HCT Seed Color: Change 1 variable to generate the entire theme like Material Theme Builder", "Filtered via 5-tier Surface Container Engine", "Interactive demo for evaluators").
+- **Why It Fails:** It turns a production software interface into a student school project or an AI debug dump. Real users expect natural product vocabulary ("Primary color", "Theme", "Filter"), not a monologue explaining how the developer coded or prompted the feature.
+- **Rule:** 
+  1. **User-Facing Copy Only:** Every label, button, badge, and tooltip must read as a natural, concise business action or domain noun.
+  2. **Ban Implementation Jargon on UI:** Never display terms like *HCT, MCU, Algorithm, Dynamic Scheme, 5-tier Surface, Engine, Seed Color, Token System* in user-visible UI copy unless the application itself is specifically an internal developer tool (like Material Theme Builder itself).
+  3. **Discreet Utility Controls:** Switchers (theme, font, density) must be integrated cleanly into app headers, settings dialogs, or minimal control bars without promotional or explanatory subtitles.
+
 ---
 
 ## 2. Fake-Material Styling

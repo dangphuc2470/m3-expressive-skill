@@ -34,6 +34,10 @@ Reject and forbid these patterns in all generated code and UI:
 7. **Metric card illustration & watermark discipline:**
    - Every metric card must feature a distinct visual metaphor (e.g., Distance = Road; Speed = Wind streaks; Connection = Signal bars). Never duplicate identical graphic watermarks across cards.
    - Extract clean transparent assets directly or use clean centerline strokes; never blindly guess complex freehand Bezier coordinates.
+8. **Never leak prompts, technical jargon, or tutorials into UI copywriting:**
+   - Real products use concise, functional domain labels ("Theme", "Primary color", "Filter by date", "Export").
+   - Putting prompt instructions, engine explanations, or technical lectures on UI labels (such as "HCT Seed Color: Change 1 variable to generate the entire theme like Material Theme Builder", "Optimized with 5-tier Surface Algorithm", or "Click here to test dynamic color generation") is classic AI slop.
+   - UI text must always be strictly user-facing, professional, and minimal.
 
 ---
 
