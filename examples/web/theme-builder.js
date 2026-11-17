@@ -112,8 +112,8 @@
       });
     }
 
-    // Default initialization: Pure foliage green #63A002
-    window.applyDynamicTheme('#63A002');
+    // Default initialization: Soothing Pastel Botanical Mint #1B6B46
+    window.applyDynamicTheme('#1B6B46');
   }
 
   if (document.readyState === 'loading') {
