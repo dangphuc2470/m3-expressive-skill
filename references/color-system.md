@@ -107,3 +107,80 @@ Hover, focus, pressed, and dragged states are generated using semi-transparent o
   }
 }
 ```
+ 
+---
+
+## 5. Dynamic Theming via Google Material Color Utilities (HCT)
+
+In Material 3, the entire system palette can be dynamically derived from **a single Source Color (Seed Color)**. This is the exact mechanism powering Android 12+ wallpaper dynamic theming and the official [Material Theme Builder](https://material-foundation.github.io/material-theme-builder/).
+
+### 5.1. How It Works Under the Hood
+1. **Hue & Chroma Extraction:** The algorithm extracts the hue and chroma of the source color.
+2. **5 Tonal Palettes Generated:**
+   - **Primary Palette:** Key brand hue, chroma clamped/boosted.
+   - **Secondary Palette:** Same or adjusted hue with low chroma (~16) for supporting UI elements.
+   - **Tertiary Palette:** Hue rotated by ~60 degrees for balanced, contrasting accents.
+   - **Neutral Palette:** Near-zero chroma (~4–8) for canvas surfaces (`surface`, `surface-dim`, `surface-bright`) and the 5 `surface-container` tiers.
+   - **Neutral Variant Palette:** Slightly higher chroma (~8–12) for borders (`outline`, `outline-variant`) and subtle cards.
+3. **WCAG Accessibility Guaranteed:** Since roles map directly to fixed luminance tones (e.g., Primary = Tone 40, On Primary = Tone 100), contrast ratios (3:1, 4.5:1, 7:1) are mathematically guaranteed regardless of the user's chosen seed color.
+
+### 5.2. Web Implementation (Runtime Dynamic Theming)
+Using `@material/material-color-utilities`:
+
+```javascript
+import { argbFromHex, hexFromArgb, themeFromSourceColor } from '@material/material-color-utilities';
+
+export function applyDynamicTheme(sourceHex, isDark = false) {
+  const theme = themeFromSourceColor(argbFromHex(sourceHex));
+  const scheme = isDark ? theme.schemes.dark : theme.schemes.light;
+  const n = theme.palettes.neutral;
+  const root = document.documentElement;
+
+  const tokens = {
+    '--md-sys-color-primary': hexFromArgb(scheme.primary),
+    '--md-sys-color-on-primary': hexFromArgb(scheme.onPrimary),
+    '--md-sys-color-primary-container': hexFromArgb(scheme.primaryContainer),
+    '--md-sys-color-on-primary-container': hexFromArgb(scheme.onPrimaryContainer),
+    '--md-sys-color-surface': hexFromArgb(isDark ? n.tone(6) : n.tone(98)),
+    '--md-sys-color-surface-container': hexFromArgb(isDark ? n.tone(12) : n.tone(94)),
+    '--md-sys-color-surface-container-high': hexFromArgb(isDark ? n.tone(17) : n.tone(92)),
+    '--md-sys-color-outline-variant': hexFromArgb(scheme.outlineVariant),
+  };
+
+  for (const [key, val] of Object.entries(tokens)) {
+    root.style.setProperty(key, val);
+  }
+}
+```
+
+### 5.3. Flutter Implementation (One-Line Seed Theming)
+Flutter natively integrates Material Color Utilities in its framework:
+
+```dart
+// Generates the full 35-token M3 ColorScheme from a single seed color
+ThemeData buildTheme(Brightness brightness) {
+  return ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.fromSeed(
+      seedColor: const Color(0xFF63A002), // Your pure foliage green
+      brightness: brightness,
+    ),
+  );
+}
+```
+
+### 5.4. Android Jetpack Compose Implementation
+```kotlin
+// Generates M3 ColorScheme using dynamic color or custom seed
+val colorScheme = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+    dynamicLightColorScheme(context)
+} else {
+    lightColorScheme(
+        primary = Color(0xFF3F6900),
+        primaryContainer = Color(0xFFB2F65F),
+        surface = Color(0xFFFAFAF2),
+        surfaceContainer = Color(0xFFEFEEE7)
+    )
+}
+```
+

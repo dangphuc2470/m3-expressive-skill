@@ -66,6 +66,7 @@ Google's official stance: *Material Android is Compose-first. MDC-Android Views 
 
 ### Web (CSS Tokens & Modern Standards)
 - Root CSS custom properties declare the 5 surface container tiers and 10 corner radius tokens.
+- One-variable dynamic theming engine powered by Google `@material/material-color-utilities` (single Source Color / Seed dynamically recalculates entire 35-token system).
 - Motion springs map to official cubic-bezier transition curves.
 - Semantic HTML elements (`<nav>`, `<header>`, `<main>`, `<dialog>`) with full keyboard accessibility.
 
