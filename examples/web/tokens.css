@@ -1,76 +1,116 @@
 /**
- * Material Design 3 (M3 Expressive) - Core Design Tokens CSS
- * Primary Brand Color: #4C662B (Google Material 3 Theme Olive Green)
+ * Material 3 Expressive Standard CSS Design Tokens
+ * Direct mapping from Google Material 3 Design Kit & Motion Specs
  */
 
 :root {
-  /* Surface Containers - 5 Levels of Tone Elevation (Clean, Crisp, Light) */
-  --md-sys-color-surface-dim: #DCE3D8;
-  --md-sys-color-surface: #F9FAF6;
-  --md-sys-color-surface-bright: #FFFFFF;
-  --md-sys-color-surface-container-lowest: #FFFFFF;
-  --md-sys-color-surface-container-low: #F3F7EF;
-  --md-sys-color-surface-container: #ECF2E8;
-  --md-sys-color-surface-container-high: #E5ECE0;
-  --md-sys-color-surface-container-highest: #DFE6DA;
+  /* --- 1. Typography Fonts --- */
+  --md-ref-typeface-brand: "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --md-ref-typeface-plain: "Roboto Flex", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --md-ref-typeface-mono: "Roboto Mono", ui-monospace, monospace;
 
-  /* Typography & Content Colors */
-  --md-sys-color-on-surface: #181E15;
-  --md-sys-color-on-surface-variant: #444D40;
-  --md-sys-color-outline: #747E6E;
-  --md-sys-color-outline-variant: #C4CEBF;
-
-  /* Primary Accent: Exact #4C662B */
-  --md-sys-color-primary: #4C662B;
+  /* --- 2. Color Palette (Light - Botanical Forest) --- */
+  --md-sys-color-primary: #1B6B46;
   --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #CDEDA3;
-  --md-sys-color-on-primary-container: #102000;
+  --md-sys-color-primary-container: #A3F2C2;
+  --md-sys-color-on-primary-container: #002111;
 
-  /* Secondary Accent */
-  --md-sys-color-secondary: #586249;
+  --md-sys-color-secondary: #4F6354;
   --md-sys-color-on-secondary: #FFFFFF;
-  --md-sys-color-secondary-container: #DCE7C8;
-  --md-sys-color-on-secondary-container: #151E0B;
+  --md-sys-color-secondary-container: #D2E8D5;
+  --md-sys-color-on-secondary-container: #0D1F13;
 
-  /* Tertiary Accent (Fresh Teal/Aqua) */
-  --md-sys-color-tertiary: #386663;
+  --md-sys-color-tertiary: #3C6472;
   --md-sys-color-on-tertiary: #FFFFFF;
-  --md-sys-color-tertiary-container: #BCECE7;
-  --md-sys-color-on-tertiary-container: #00201E;
+  --md-sys-color-tertiary-container: #BFE9F9;
+  --md-sys-color-on-tertiary-container: #001F28;
 
-  /* Error */
-  --md-sys-color-error: #BA1A1A;
-  --md-sys-color-on-error: #FFFFFF;
-  --md-sys-color-error-container: #FFDAD6;
-  --md-sys-color-on-error-container: #410002;
+  --md-sys-color-surface: #F7FBF4;
+  --md-sys-color-surface-dim: #D7DCD5;
+  --md-sys-color-surface-bright: #F7FBF4;
+  --md-sys-color-on-surface: #181D19;
+  --md-sys-color-on-surface-variant: #414942;
 
-  /* Elevation Shadows */
-  --md-sys-elevation-level1: 0 1px 3px rgba(30, 45, 15, 0.06), 0 1px 2px rgba(30, 45, 15, 0.04);
-  --md-sys-elevation-level2: 0 4px 12px rgba(30, 45, 15, 0.07), 0 2px 4px rgba(30, 45, 15, 0.04);
-  --md-sys-elevation-level3: 0 8px 24px rgba(30, 45, 15, 0.10), 0 4px 8px rgba(30, 45, 15, 0.05);
+  /* The 5 Surface Container Tiers (Light) */
+  --md-sys-color-surface-container-lowest: #FFFFFF;
+  --md-sys-color-surface-container-low: #F1F5EE;
+  --md-sys-color-surface-container: #EBEFE8;
+  --md-sys-color-surface-container-high: #E5EAE2;
+  --md-sys-color-surface-container-highest: #DFE4DD;
 
-  /* Shape Tokens (Official 10-step M3 Scale) */
+  --md-sys-color-outline: #717971;
+  --md-sys-color-outline-variant: #C0C9BF;
+
+  /* --- 3. The 10-Step Corner Radius Scale --- */
   --md-sys-shape-corner-none: 0px;
   --md-sys-shape-corner-extra-small: 4px;
   --md-sys-shape-corner-small: 8px;
   --md-sys-shape-corner-medium: 12px;
   --md-sys-shape-corner-large: 16px;
-  --md-sys-shape-corner-large-increased: 20px;
+  --md-sys-shape-corner-large-increased: 20px; /* M3 Expressive */
   --md-sys-shape-corner-extra-large: 28px;
-  --md-sys-shape-corner-extra-large-increased: 32px;
-  --md-sys-shape-corner-extra-extra-large: 48px;
+  --md-sys-shape-corner-extra-large-increased: 32px; /* M3 Expressive: Floating Toolbar */
+  --md-sys-shape-corner-extra-extra-large: 48px; /* M3 Expressive: Large Cards & Sheets */
   --md-sys-shape-corner-full: 9999px;
 
-  /* Motion Physics - Springs & Easing */
-  --md-sys-motion-spring-fast-spatial-duration: 250ms;
-  --md-sys-motion-spring-fast-spatial: cubic-bezier(0.18, 0.89, 0.32, 1.28);
-  --md-sys-motion-spring-fast-effects-duration: 150ms;
-  --md-sys-motion-spring-fast-effects: cubic-bezier(0.2, 0, 0, 1);
-  --md-sys-motion-spring-default-spatial-duration: 400ms;
-  --md-sys-motion-spring-default-spatial: cubic-bezier(0.15, 0.95, 0.35, 1.15);
-  --md-sys-motion-spring-default-effects-duration: 250ms;
-  --md-sys-motion-spring-default-effects: cubic-bezier(0.2, 0, 0, 1);
+  /* --- 4. Motion Physics (Spring Cubic-Bezier & Durations) --- */
+  /* Spatial Springs: Allows soft overshoot for position, scale, and shape */
+  --md-sys-motion-spring-fast-spatial: cubic-bezier(0.42, 1.67, 0.21, 0.90);
+  --md-sys-motion-spring-fast-spatial-duration: 350ms;
 
-  --md-ref-typeface-plain: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --md-ref-typeface-brand: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --md-sys-motion-spring-default-spatial: cubic-bezier(0.38, 1.21, 0.22, 1.00);
+  --md-sys-motion-spring-default-spatial-duration: 500ms;
+
+  --md-sys-motion-spring-slow-spatial: cubic-bezier(0.39, 1.29, 0.35, 0.98);
+  --md-sys-motion-spring-slow-spatial-duration: 650ms;
+
+  /* Effects Springs: Zero overshoot, critically damped for colors and opacity */
+  --md-sys-motion-spring-fast-effects: cubic-bezier(0.31, 0.94, 0.34, 1.00);
+  --md-sys-motion-spring-fast-effects-duration: 150ms;
+
+  --md-sys-motion-spring-default-effects: cubic-bezier(0.34, 0.80, 0.34, 1.00);
+  --md-sys-motion-spring-default-effects-duration: 200ms;
+
+  --md-sys-motion-spring-slow-effects: cubic-bezier(0.34, 0.88, 0.34, 1.00);
+  --md-sys-motion-spring-slow-effects-duration: 300ms;
+
+  /* --- 5. Elevation Shadows --- */
+  --md-sys-elevation-level1: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
+  --md-sys-elevation-level2: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
+  --md-sys-elevation-level3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.30);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-primary: #88D5A7;
+    --md-sys-color-on-primary: #003820;
+    --md-sys-color-primary-container: #005232;
+    --md-sys-color-on-primary-container: #A3F2C2;
+
+    --md-sys-color-secondary: #B6CCBA;
+    --md-sys-color-on-secondary: #223528;
+    --md-sys-color-secondary-container: #384B3D;
+    --md-sys-color-on-secondary-container: #D2E8D5;
+
+    --md-sys-color-tertiary: #A3CDDC;
+    --md-sys-color-on-tertiary: #053542;
+    --md-sys-color-tertiary-container: #234C5A;
+    --md-sys-color-on-tertiary-container: #BFE9F9;
+
+    --md-sys-color-surface: #101411;
+    --md-sys-color-surface-dim: #101411;
+    --md-sys-color-surface-bright: #363A36;
+    --md-sys-color-on-surface: #DFE4DD;
+    --md-sys-color-on-surface-variant: #C0C9BF;
+
+    /* The 5 Surface Container Tiers (Dark) */
+    --md-sys-color-surface-container-lowest: #0B0F0C;
+    --md-sys-color-surface-container-low: #181D19;
+    --md-sys-color-surface-container: #1C211D;
+    --md-sys-color-surface-container-high: #272B27;
+    --md-sys-color-surface-container-highest: #313631;
+
+    --md-sys-color-outline: #8B938A;
+    --md-sys-color-outline-variant: #414942;
+  }
 }
