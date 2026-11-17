@@ -12,37 +12,13 @@
       return;
     }
 
-    const { argbFromHex, hexFromArgb, themeFromSourceColor } = MCU;
+    const { argbFromHex, hexFromArgb, Hct, SchemeTonalSpot } = MCU;
 
     window.applyDynamicTheme = function(sourceHex, isDark = false) {
       try {
-        const argb = argbFromHex(sourceHex);
-        const theme = themeFromSourceColor(argb);
-        const scheme = isDark ? theme.schemes.dark : theme.schemes.light;
-        const n = theme.palettes.neutral;
-        const nv = theme.palettes.neutralVariant;
+        const sourceHct = Hct.fromInt(argbFromHex(sourceHex));
+        const scheme = new SchemeTonalSpot(sourceHct, isDark, 0);
         const root = document.documentElement;
-
-        // Extract accurate 5-tier Surface Containers from Neutral palette (Official M3 Specification)
-        const surfaceContainers = isDark ? {
-          '--md-sys-color-surface-dim': hexFromArgb(n.tone(6)),
-          '--md-sys-color-surface': hexFromArgb(n.tone(6)),
-          '--md-sys-color-surface-bright': hexFromArgb(n.tone(24)),
-          '--md-sys-color-surface-container-lowest': hexFromArgb(n.tone(4)),
-          '--md-sys-color-surface-container-low': hexFromArgb(n.tone(10)),
-          '--md-sys-color-surface-container': hexFromArgb(n.tone(12)),
-          '--md-sys-color-surface-container-high': hexFromArgb(n.tone(17)),
-          '--md-sys-color-surface-container-highest': hexFromArgb(n.tone(22)),
-        } : {
-          '--md-sys-color-surface-dim': hexFromArgb(n.tone(87)),
-          '--md-sys-color-surface': hexFromArgb(n.tone(98)),
-          '--md-sys-color-surface-bright': hexFromArgb(n.tone(98)),
-          '--md-sys-color-surface-container-lowest': hexFromArgb(n.tone(100)),
-          '--md-sys-color-surface-container-low': hexFromArgb(n.tone(96)),
-          '--md-sys-color-surface-container': hexFromArgb(n.tone(94)),
-          '--md-sys-color-surface-container-high': hexFromArgb(n.tone(92)),
-          '--md-sys-color-surface-container-highest': hexFromArgb(n.tone(90)),
-        };
 
         const tokenMap = {
           '--md-sys-color-primary': hexFromArgb(scheme.primary),
@@ -60,11 +36,19 @@
           '--md-sys-color-tertiary-container': hexFromArgb(scheme.tertiaryContainer),
           '--md-sys-color-on-tertiary-container': hexFromArgb(scheme.onTertiaryContainer),
 
+          '--md-sys-color-surface': hexFromArgb(scheme.surface),
+          '--md-sys-color-surface-dim': hexFromArgb(scheme.surfaceDim),
+          '--md-sys-color-surface-bright': hexFromArgb(scheme.surfaceBright),
+          '--md-sys-color-surface-container-lowest': hexFromArgb(scheme.surfaceContainerLowest),
+          '--md-sys-color-surface-container-low': hexFromArgb(scheme.surfaceContainerLow),
+          '--md-sys-color-surface-container': hexFromArgb(scheme.surfaceContainer),
+          '--md-sys-color-surface-container-high': hexFromArgb(scheme.surfaceContainerHigh),
+          '--md-sys-color-surface-container-highest': hexFromArgb(scheme.surfaceContainerHighest),
+
           '--md-sys-color-on-surface': hexFromArgb(scheme.onSurface),
           '--md-sys-color-on-surface-variant': hexFromArgb(scheme.onSurfaceVariant),
           '--md-sys-color-outline': hexFromArgb(scheme.outline),
-          '--md-sys-color-outline-variant': hexFromArgb(scheme.outlineVariant),
-          ...surfaceContainers
+          '--md-sys-color-outline-variant': hexFromArgb(scheme.outlineVariant)
         };
 
         for (const [key, value] of Object.entries(tokenMap)) {
@@ -76,10 +60,10 @@
         const wave2 = document.querySelector('.bg-wave-top-right path:last-child');
         const wave3 = document.querySelector('.bg-wave-left path');
         const wave4 = document.querySelector('.bg-wave-bottom-right path');
-        if (wave1) wave1.setAttribute('fill', surfaceContainers['--md-sys-color-surface-container-high']);
+        if (wave1) wave1.setAttribute('fill', tokenMap['--md-sys-color-surface-container-high']);
         if (wave2) wave2.setAttribute('fill', tokenMap['--md-sys-color-primary-container']);
-        if (wave3) wave3.setAttribute('fill', surfaceContainers['--md-sys-color-surface-container']);
-        if (wave4) wave4.setAttribute('fill', surfaceContainers['--md-sys-color-surface-container-low']);
+        if (wave3) wave3.setAttribute('fill', tokenMap['--md-sys-color-surface-container']);
+        if (wave4) wave4.setAttribute('fill', tokenMap['--md-sys-color-surface-container-low']);
 
         // Update UI displays
         const hexDisplay = document.getElementById('hexCodeDisplay');
