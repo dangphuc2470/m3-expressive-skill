@@ -107,6 +107,6 @@ Navigate into specialized references for precise specifications:
 ## 6. Working Examples
 
 Refer to verified, compile-ready code templates:
-- [examples/flutter/](file:///d:/Project/Material%203/m3-pro/examples/flutter/): Complete Flutter setup: `theme.dart` (ThemeData with full 5-tier containers) and `components.dart` (M3MetricCard with watermark, M3FloatingToolbar, M3ConnectedButtonGroup, M3SearchBarPill).
-- [examples/compose/](file:///d:/Project/Material%203/m3-pro/examples/compose/): Jetpack Compose implementations of 35 expressive shapes (`Shapes.kt`), custom organic panels and floating toolbars (`Components.kt`), and dynamic theming (`Theme.kt`).
+- [examples/flutter/](file:///d:/Project/Material%203/m3-pro/examples/flutter/): Complete Flutter setup: `theme.dart` (ThemeData with 5-tier containers), `components.dart` (M3MetricCard, M3FloatingToolbar, M3ConnectedButtonGroup, M3SearchBarPill), plus full reference screens for mobile (`mobile_dashboard.dart`) and adaptive desktop (`desktop_dashboard.dart`).
+- [examples/compose/](file:///d:/Project/Material%203/m3-pro/examples/compose/): Jetpack Compose implementations of 35 expressive shapes (`Shapes.kt`), custom organic panels and floating toolbars (`Components.kt`), dynamic theming (`Theme.kt`), and a full telemetry dashboard screen (`DashboardScreen.kt`).
 - [examples/web/](file:///d:/Project/Material%203/m3-pro/examples/web/): Production CSS design tokens (`tokens.css`), component styles (`components.css`), clean transparent watermarks (`assets/`), and interactive demo showcase (`index.html`).
