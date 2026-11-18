@@ -96,8 +96,8 @@
       });
     }
 
-    // Default initialization: Soothing Pastel Botanical Mint #1B6B46
-    window.applyDynamicTheme('#1B6B46');
+    // Default initialization: Soft Olive (Xanh reu) #4C662B
+    window.applyDynamicTheme('#4C662B');
   }
 
   if (document.readyState === 'loading') {
