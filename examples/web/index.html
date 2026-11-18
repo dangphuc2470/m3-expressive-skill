@@ -331,22 +331,11 @@
       right: 0;
       bottom: 0;
       top: 0;
-      width: 52%;
+      width: 58%;
       height: 100%;
       pointer-events: none;
       z-index: 1;
-      display: flex;
-      align-items: flex-end;
-      justify-content: flex-end;
       overflow: hidden;
-    }
-
-    .metric-watermark-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: right bottom;
-      pointer-events: none;
     }
 
     .metric-watermark-svg {
@@ -515,18 +504,18 @@
   <div class="bg-canvas-layer" aria-hidden="true">
     <!-- Top-Right Sweeping Organic Hill -->
     <svg class="bg-wave-top-right" viewBox="0 0 600 450" fill="none">
-      <path d="M 120 0 C 180 180, 360 320, 600 240 L 600 0 Z" fill="#D3EAD7" />
-      <path d="M 280 0 C 340 140, 460 220, 600 160 L 600 0 Z" fill="#BFE3C6" opacity="0.6" />
+      <path d="M 120 0 C 180 180, 360 320, 600 240 L 600 0 Z" fill="var(--md-sys-color-primary-container, #D3EAD7)" />
+      <path d="M 280 0 C 340 140, 460 220, 600 160 L 600 0 Z" fill="var(--md-sys-color-primary-container, #BFE3C6)" opacity="0.6" />
     </svg>
 
     <!-- Left Organic Wave -->
     <svg class="bg-wave-left" viewBox="0 0 500 550" fill="none">
-      <path d="M 0 100 C 160 160, 220 380, 0 480 Z" fill="#D8EEDC" />
+      <path d="M 0 100 C 160 160, 220 380, 0 480 Z" fill="var(--md-sys-color-primary-container, #D8EEDC)" />
     </svg>
 
     <!-- Bottom-Right Sweeping Curve -->
     <svg class="bg-wave-bottom-right" viewBox="0 0 550 400" fill="none">
-      <path d="M 200 400 C 260 260, 420 180, 550 200 L 550 400 Z" fill="#D4ECD8" />
+      <path d="M 200 400 C 260 260, 420 180, 550 200 L 550 400 Z" fill="var(--md-sys-color-primary-container, #D4ECD8)" />
     </svg>
   </div>
 
@@ -606,20 +595,33 @@
         <div class="metric-value-row">
           <span class="metric-value">42.8 km</span>
         </div>
-        <!-- S-Curve Road Ribbon & Hill Vector (Dynamic Theming) -->
+        <!-- Dải đường uốn lượn phối cảnh xa gần (100% Dynamic Theming) -->
         <div class="metric-watermark-wrapper" aria-hidden="true">
-          <svg class="metric-watermark-svg" viewBox="0 0 240 154" fill="none">
-            <!-- Organic background hill -->
-            <path d="M 185 0 C 190 45, 155 85, 168 120 C 176 140, 200 150, 225 154 L 240 154 L 240 0 Z" fill="var(--md-sys-color-primary-container, #D3EAD7)" opacity="0.45" />
+          <svg class="metric-watermark-svg" viewBox="0 0 200 154" preserveAspectRatio="none" fill="none">
+            <!-- Hill 1: Vòm đồi hữu cơ mềm mại ôm từ đỉnh (y=0) xuống đáy (y=154) -->
+            <path d="M 75 0 C 45 40, 38 85, 70 120 C 95 142, 130 150, 170 154 L 200 154 L 200 0 Z" fill="var(--md-sys-color-primary-container, #D3EAD7)" opacity="0.45" />
 
-            <!-- S-Curve Road Ribbon -->
-            <path d="M 240 62 L 205 62 C 150 62, 108 72, 102 93 C 96 114, 142 121, 182 127 C 215 131, 212 143, 180 147 C 140 152, 85 152, 30 154" 
-                  stroke="var(--md-sys-color-primary, #6EAF7B)" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" opacity="0.40" fill="none" />
+            <!-- Dải Road uốn lượn: đụng mép đáy (y=154) và đụng sát mép phải (x=200) -->
+            <path 
+              d="M 0 154 
+                 C 24 130, 84 126, 132 126 
+                 C 156 126, 156 116, 132 109 
+                 C 104 100, 84 92, 84 80 
+                 C 84 69, 116 66, 164 65.5 
+                 C 180 65.2, 192 65, 200 65 
+                 L 200 73.5 
+                 C 172 74.5, 116 76, 116 82 
+                 C 116 88, 152 95, 176 106 
+                 C 200 117, 196 141, 152 148 
+                 C 104 154, 36 154, 0 154 Z" 
+              fill="var(--md-sys-color-primary, #6EAF7B)" 
+              opacity="0.30"
+            />
           </svg>
         </div>
       </div>
 
-      <!-- Card 2: Speed (100% Exact to ChatGPT Original Reference: Soft Rounded Speed Bars + Background Hill) -->
+      <!-- Card 2: Speed (Aerodynamic Wind Streamlines + Hill 2 riêng biệt) -->
       <div class="metric-card">
         <div class="metric-header">
           <div class="metric-icon-badge">
@@ -632,30 +634,28 @@
         <div class="metric-value-row">
           <span class="metric-value">26.4 km/h</span>
         </div>
-        <!-- Aerodynamic Wind / Speed Streaks (Thick ribbon weight matching Card 1, distinct from Card 3 signal bars) -->
+        <!-- Aerodynamic Wind / Speed Streaks -->
         <div class="metric-watermark-wrapper" aria-hidden="true">
-          <svg class="metric-watermark-svg" viewBox="0 0 240 154" fill="none">
-            <!-- Organic background hill -->
-            <path d="M 185 0 C 190 45, 155 85, 168 120 C 176 140, 200 150, 225 154 L 240 154 L 240 0 Z" fill="var(--md-sys-color-primary-container, #D3EAD7)" opacity="0.45" />
+          <svg class="metric-watermark-svg" viewBox="0 0 200 154" preserveAspectRatio="none" fill="none">
+            <!-- Hill 2: Dáng đồi lướt thoải tạo đường dẫn tốc độ từ đỉnh xuống đáy -->
+            <path d="M 45 0 C 85 25, 65 75, 95 110 C 120 138, 155 148, 190 154 L 200 154 L 200 0 Z" fill="var(--md-sys-color-primary-container, #D3EAD7)" opacity="0.45" />
             
-            <!-- Thick Aerodynamic Speed Trails (matching road ribbon thickness) -->
-            <g fill="var(--md-sys-color-primary, #6EAF7B)" stroke="var(--md-sys-color-primary, #6EAF7B)">
-              <!-- Top Streak -->
-              <path d="M 125 58 C 155 56, 185 62, 225 60" stroke-width="14" stroke-linecap="round" opacity="0.38"/>
-              
-              <!-- Middle Leading Dash -->
-              <path d="M 50 88 L 66 88" stroke-width="18" stroke-linecap="round" opacity="0.45"/>
-              <!-- Main Middle Power Streak -->
-              <path d="M 86 88 C 135 85, 175 92, 225 90" stroke-width="18" stroke-linecap="round" opacity="0.45"/>
-              
-              <!-- Bottom Streak -->
-              <path d="M 115 118 C 150 115, 185 122, 225 120" stroke-width="16" stroke-linecap="round" opacity="0.40"/>
-            </g>
+            <!-- Dải gió trên chạm mép phải -->
+            <path d="M 85 42 C 115 52, 145 45, 175 30 C 185 26, 195 24, 200 24 L 200 34 C 190 35, 170 40, 150 48 C 125 58, 105 53, 85 42 Z" fill="var(--md-sys-color-primary, #6EAF7B)" opacity="0.32" />
+            
+            <!-- Vệt gió nhỏ phía trước -->
+            <path d="M 30 88 C 40 86, 52 88, 62 92 C 52 94, 40 93, 30 88 Z" fill="var(--md-sys-color-primary, #6EAF7B)" opacity="0.40" />
+
+            <!-- Dải gió chính giữa: uốn lượn S mềm mại như Road, chạm mép phải -->
+            <path d="M 68 90 C 95 96, 125 88, 155 68 C 172 56, 188 52, 200 50 L 200 66 C 185 68, 168 74, 145 90 C 118 108, 88 110, 68 90 Z" fill="var(--md-sys-color-primary, #6EAF7B)" opacity="0.45" />
+            
+            <!-- Dải gió dưới chạm mép phải -->
+            <path d="M 78 126 C 108 135, 140 125, 172 108 C 185 100, 195 98, 200 97 L 200 108 C 190 110, 175 115, 155 126 C 130 140, 102 140, 78 126 Z" fill="var(--md-sys-color-primary, #6EAF7B)" opacity="0.35" />
           </svg>
         </div>
       </div>
 
-      <!-- Card 3: Latency with 4 Rounded Signal Bars (Exact like ChatGPT screenshot) -->
+      <!-- Card 3: Latency (4 Rounded Signal Bars + Hill 3 riêng biệt) -->
       <div class="metric-card">
         <div class="metric-header">
           <div class="metric-icon-badge">
@@ -668,14 +668,13 @@
         <div class="metric-value-row">
           <span class="metric-value">120 ms</span>
         </div>
-        <!-- 4 Soft Vertical Signal Bars exactly like ChatGPT image -->
+        <!-- 4 Soft Vertical Signal Bars -->
         <div class="metric-watermark-wrapper" aria-hidden="true">
-          <svg class="metric-watermark-svg" viewBox="0 0 240 154" fill="none">
-            <!-- Organic background hill -->
-            <path d="M 195 0 C 200 45, 165 85, 175 120 C 182 140, 205 150, 225 154 L 240 154 L 240 0 Z" fill="var(--md-sys-color-primary-container, #D3EAD7)" opacity="0.45" />
+          <svg class="metric-watermark-svg" viewBox="0 0 200 154" preserveAspectRatio="none" fill="none">
+            <!-- Hill 3: Dáng đồi 2 nhịp sóng mềm làm bệ đỡ ôm từ đỉnh xuống đáy -->
+            <path d="M 60 0 C 90 35, 55 70, 75 105 C 95 135, 130 148, 165 154 L 200 154 L 200 0 Z" fill="var(--md-sys-color-primary-container, #D3EAD7)" opacity="0.45" />
             
-            <!-- 4 Rounded Pill Bars -->
-            <g transform="translate(130, 48)" fill="var(--md-sys-color-primary, #74B584)" opacity="0.45">
+            <g transform="translate(100, 48)" fill="var(--md-sys-color-primary, #74B584)" opacity="0.45">
               <rect x="0"  y="58" width="14" height="30" rx="7" />
               <rect x="22" y="42" width="14" height="46" rx="7" />
               <rect x="44" y="24" width="14" height="64" rx="7" />

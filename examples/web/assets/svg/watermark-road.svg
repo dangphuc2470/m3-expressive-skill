@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 154" width="100%" height="100%" preserveAspectRatio="none" fill="none">
+  <!-- Hill 1: Vòm đồi hữu cơ mềm mại ôm từ đỉnh xuống đáy -->
+  <path d="M 75 0 C 45 40, 38 85, 70 120 C 95 142, 130 150, 170 154 L 200 154 L 200 0 Z" fill="currentColor" opacity="0.25" />
+
+  <!-- Dải Road uốn lượn: đụng mép đáy (y=154) và đụng sát mép phải (x=200) -->
+  <path 
+    d="M 0 154 
+       C 24 130, 84 126, 132 126 
+       C 156 126, 156 116, 132 109 
+       C 104 100, 84 92, 84 80 
+       C 84 69, 116 66, 164 65.5 
+       C 180 65.2, 192 65, 200 65 
+       L 200 73.5 
+       C 172 74.5, 116 76, 116 82 
+       C 116 88, 152 95, 176 106 
+       C 200 117, 196 141, 152 148 
+       C 104 154, 36 154, 0 154 Z" 
+    fill="currentColor" 
+    opacity="0.45"
+  />
+</svg>

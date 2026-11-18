@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 154" width="100%" height="100%" preserveAspectRatio="none" fill="none">
+  <!-- Hill 2: Dáng đồi lướt thoải tạo đường dẫn tốc độ từ đỉnh xuống đáy -->
+  <path d="M 45 0 C 85 25, 65 75, 95 110 C 120 138, 155 148, 190 154 L 200 154 L 200 0 Z" fill="currentColor" opacity="0.25" />
+  
+  <!-- Dải gió trên chạm mép phải -->
+  <path d="M 85 42 C 115 52, 145 45, 175 30 C 185 26, 195 24, 200 24 L 200 34 C 190 35, 170 40, 150 48 C 125 58, 105 53, 85 42 Z" fill="currentColor" opacity="0.32" />
+  
+  <!-- Vệt gió nhỏ phía trước -->
+  <path d="M 30 88 C 40 86, 52 88, 62 92 C 52 94, 40 93, 30 88 Z" fill="currentColor" opacity="0.40" />
+
+  <!-- Dải gió chính giữa: uốn lượn S mềm mại như Road, chạm mép phải -->
+  <path d="M 68 90 C 95 96, 125 88, 155 68 C 172 56, 188 52, 200 50 L 200 66 C 185 68, 168 74, 145 90 C 118 108, 88 110, 68 90 Z" fill="currentColor" opacity="0.45" />
+  
+  <!-- Dải gió dưới chạm mép phải -->
+  <path d="M 78 126 C 108 135, 140 125, 172 108 C 185 100, 195 98, 200 97 L 200 108 C 190 110, 175 115, 155 126 C 130 140, 102 140, 78 126 Z" fill="currentColor" opacity="0.35" />
+</svg>

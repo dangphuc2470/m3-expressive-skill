@@ -31,9 +31,11 @@ Reject and forbid these patterns in all generated code and UI:
    - Not every container is a card; not every button is a pill. Shape contrast requires square shapes next to rounded shapes to generate visual tension.
 6. **No screen header icon gimmicks:**
    - Professional dashboards and utility screens rely on **Pure Typography** (`Headline Medium/Large` + `Body Medium` subtitle), left-aligned and clean. Never slap oversized novelty badges or decorative cookies beside the primary screen `h1`.
-7. **Metric card illustration & watermark discipline:**
-   - Every metric card must feature a distinct visual metaphor (e.g., Distance = Road; Speed = Wind streaks; Connection = Signal bars). Never duplicate identical graphic watermarks across cards.
-   - Extract clean transparent assets directly or use clean centerline strokes; never blindly guess complex freehand Bezier coordinates.
+7. **Ambient graphics & vector discipline:**
+   - Background vectors and ambient layers must remain strictly secondary (`opacity: 0.08 - 0.20`), preserving immediate contrast and legibility of primary data.
+   - Anchor continuous flow paths and silhouettes cleanly to container edges (`overflow: hidden`) rather than floating abruptly within content areas.
+   - Bind all vector assets to semantic theme tokens (`currentColor` or CSS variables) so they adapt automatically across themes.
+
 8. **Never leak prompts, technical jargon, or tutorials into UI copywriting:**
    - Real products use concise, functional domain labels ("Theme", "Primary color", "Filter by date", "Export").
    - Putting prompt instructions, engine explanations, or technical lectures on UI labels (such as "HCT Seed Color: Change 1 variable to generate the entire theme like Material Theme Builder", "Optimized with 5-tier Surface Algorithm", or "Click here to test dynamic color generation") is classic AI slop.
