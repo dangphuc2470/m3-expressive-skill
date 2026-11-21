@@ -31,6 +31,11 @@ This reference outlines common design misalignments and provides clear architect
 - **Risk:** Surfaces implementation details rather than intuitive product actions, creating cognitive dissonance for end users.
 - **Architectural Guidance:** Use concise, domain-appropriate terminology for all visible copy. Integrate utility controls (such as theme, font, or density pickers) discretely into toolbars or settings surfaces without promotional captions.
 
+### 1.6. Obvious UI Legends & Tutorial Subtitles
+- **Pitfall:** Adding explanatory subtitles or captions that narrate self-evident visual cues (e.g., "Red flashing cards mean urgent tasks", "Green means completed", "Click the card to open details").
+- **Risk:** Clutters headers with redundant instructional noise and signals that the visual hierarchy lacks confidence.
+- **Architectural Guidance:** Let color, motion, and typography communicate priority naturally. Keep screen subtitles strictly to concise domain context (e.g., data scope or active timeframe) or omit them altogether.
+
 ---
 
 ## 2. Superficial Material Styling
@@ -54,6 +59,11 @@ This reference outlines common design misalignments and provides clear architect
 - **Pitfall:** Relying on dark drop shadows (`box-shadow: 0 4px 12px rgba(0,0,0,0.15)`) across resting cards and flat content blocks.
 - **Risk:** Introduces visual muddiness and conflicts with the tonal surface model.
 - **Architectural Guidance:** Establish visual depth through tonal variation using the 5 surface container roles (`surface-container-lowest` up to `highest`). Reserve shadow elevation for transient floating layers (dialogs, menus, floating toolbars).
+
+### 2.5. Single-Edge Accent Borders on Rounded Containers
+- **Pitfall:** Applying a thick single-edge CSS border (`border-left: 3px solid ...`, `border-top`, etc.) directly onto a container with `border-radius > 0`, which bends and tapers into a distorted crescent hook at the rounded corners.
+- **Risk:** Breaks concentric corner geometry and looks like a dated, unpolished web-template artifact.
+- **Architectural Guidance:** Communicate status or priority via tonal container fills, compact semantic chips/badges, or a dedicated inner pill bar (`width: 3px; border-radius: 9999px`) inset cleanly within the container's padding rather than mutating the outer border edge.
 
 ---
 

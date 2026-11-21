@@ -41,6 +41,8 @@ Reject and forbid these patterns in all generated code and UI:
    - Putting prompt instructions, engine explanations, or technical lectures on UI labels (such as "HCT Seed Color: Change 1 variable to generate the entire theme like Material Theme Builder", "Optimized with 5-tier Surface Algorithm", or "Click here to test dynamic color generation") is classic AI slop.
    - UI text must always be strictly user-facing, professional, and minimal.
 
+> **Domain Adaptation Note (DevTools vs. Consumer UI):** Anti-slop directives prevent marketing fluff and visual clutter—they must never flatten functional data-dense tools (log explorers, API inspectors, admin consoles) into sterile boxes. Preserve domain-native visual structures (such as vertical timeline connectors, compact status badges, and high-density grids) and adapt surface density accordingly.
+
 ---
 
 ## 2. Seven Core Expressive Tactics
@@ -80,7 +82,7 @@ Google's official stance: *Material Android is Compose-first. MDC-Android Views 
 
 ## 4. Multi-Platform Design Tokens
 
-A centralized token catalog ready for instant import or copy-paste:
+A centralized token catalog ready for instant import or copy-paste (**treat `tokens.*` and `examples/` as structural references—derive or preserve the product's own seed palette instead of blindly copying the sample green hex values**):
 - [tokens/tokens.json](file:///d:/Project/Material%203/m3-pro/tokens/tokens.json): Standard W3C Design Tokens JSON format.
 - [tokens/tokens.css](file:///d:/Project/Material%203/m3-pro/tokens/tokens.css): Pure CSS root custom properties with Light and Dark mode variables.
 - [tokens/Tokens.kt](file:///d:/Project/Material%203/m3-pro/tokens/Tokens.kt): Jetpack Compose constants (dimensions, shapes, durations, cubic-bezier).
