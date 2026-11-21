@@ -41,8 +41,9 @@ Never stack two identical surface containers directly on top of each other witho
 ### 3.1. The Three Accent Groups
 1. **Primary (`primary`, `on-primary`, `primary-container`, `on-primary-container`):**
    - The most prominent brand role. Used for primary filled buttons, active states, key interactive indicators, and FABs.
+   - **Anti-Glare Rule:** Keep light-mode `primary-container` at low-to-moderate Chroma (soft pastel/sage, never neon). Never paint large cards or full list items with `primary-container`; reserve it for compact focal targets (FABs, active badges, small action pills).
 2. **Secondary (`secondary`, `on-secondary`, `secondary-container`, `on-secondary-container`):**
-   - Less prominent actions. Used for filter chips, tonal icon buttons, segmented toggles, and selection tracks.
+   - Less prominent actions. Used for filter chips, tonal icon buttons, segmented toggles, and **active list/navigation item selection**.
 3. **Tertiary (`tertiary`, `on-tertiary`, `tertiary-container`, `on-tertiary-container`):**
    - Contrasting accents that balance primary. Used for badges, warning-adjacent notifications, creative editorial moments, or highlighting secondary metrics.
 

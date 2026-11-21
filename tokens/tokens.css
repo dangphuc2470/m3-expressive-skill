@@ -5,38 +5,38 @@
 
 :root {
   /* Surface Containers - 5 Levels of Tone Elevation */
-  --md-sys-color-surface-dim: #D7DCD8;
-  --md-sys-color-surface: #F6FBF6;
-  --md-sys-color-surface-bright: #F6FBF6;
+  --md-sys-color-surface-dim: #D8DDD9;
+  --md-sys-color-surface: #F8FAF9;
+  --md-sys-color-surface-bright: #F8FAF9;
   --md-sys-color-surface-container-lowest: #FFFFFF;
-  --md-sys-color-surface-container-low: #F0F5F1;
-  --md-sys-color-surface-container: #EBEFEA;
-  --md-sys-color-surface-container-high: #E5EAE5;
-  --md-sys-color-surface-container-highest: #DFE4DF;
+  --md-sys-color-surface-container-low: #F2F5F3;
+  --md-sys-color-surface-container: #ECF0EE;
+  --md-sys-color-surface-container-high: #E6EBE8;
+  --md-sys-color-surface-container-highest: #E0E5E2;
 
   /* Content & Borders */
-  --md-sys-color-on-surface: #181D1A;
-  --md-sys-color-on-surface-variant: #414943;
-  --md-sys-color-outline: #717973;
-  --md-sys-color-outline-variant: #C0C9C2;
+  --md-sys-color-on-surface: #181C1A;
+  --md-sys-color-on-surface-variant: #424945;
+  --md-sys-color-outline: #727975;
+  --md-sys-color-outline-variant: #C4CBC7;
 
   /* Primary Accent */
-  --md-sys-color-primary: #006C4C;
+  --md-sys-color-primary: #0F6B54;
   --md-sys-color-on-primary: #FFFFFF;
-  --md-sys-color-primary-container: #89F8C7;
-  --md-sys-color-on-primary-container: #002114;
+  --md-sys-color-primary-container: #C5EADF;
+  --md-sys-color-on-primary-container: #06281F;
 
   /* Secondary Accent */
-  --md-sys-color-secondary: #4D6357;
+  --md-sys-color-secondary: #4A6359;
   --md-sys-color-on-secondary: #FFFFFF;
-  --md-sys-color-secondary-container: #CFE9D9;
-  --md-sys-color-on-secondary-container: #092016;
+  --md-sys-color-secondary-container: #DCE5E0;
+  --md-sys-color-on-secondary-container: #14231D;
 
   /* Tertiary Accent */
-  --md-sys-color-tertiary: #3D6373;
+  --md-sys-color-tertiary: #3F6175;
   --md-sys-color-on-tertiary: #FFFFFF;
-  --md-sys-color-tertiary-container: #C1E8FB;
-  --md-sys-color-on-tertiary-container: #001F29;
+  --md-sys-color-tertiary-container: #D8E6F0;
+  --md-sys-color-on-tertiary-container: #102330;
 
   /* Error Feedback */
   --md-sys-color-error: #BA1A1A;
