@@ -41,10 +41,15 @@ Never stack two identical surface containers directly on top of each other witho
 ### 3.1. The Three Accent Groups
 1. **Primary (`primary`, `on-primary`, `primary-container`, `on-primary-container`):**
    - The most prominent brand role. Used for primary filled buttons, active states, key interactive indicators, and FABs.
+   - **Tone 40 Calibration (Light Mode):** Light-mode `primary` and semantic roles (`error`, `success`, `warning`) must target M3 Tone ~40 (moderate chroma, lightness ~34%–47% in HSL) rather than bright neon-like HSL values (55%+ lightness / 70%+ saturation). Filled active/primary buttons should feel grounded and legible with white `on-*` text, never glaring.
    - **Anti-Glare Rule:** Keep light-mode `primary-container` at low-to-moderate Chroma (soft pastel/sage, never neon). Never paint large cards or full list items with `primary-container`; reserve it for compact focal targets (FABs, active badges, small action pills).
 2. **Secondary (`secondary`, `on-secondary`, `secondary-container`, `on-secondary-container`):**
    - Less prominent actions. Used for filter chips, tonal icon buttons, segmented toggles, and **active list/navigation item selection**.
-3. **Tertiary (`tertiary`, `on-tertiary`, `tertiary-container`, `on-tertiary-container`):**
+3. **Button Role Hierarchy:**
+   - **Filled (`primary` / `on-primary`):** 1–2 highest-priority actions or high-signal active toggles (e.g., primary CTA, active status mark).
+   - **Tonal (`secondary-container` / `primary-container`):** Secondary actions, toolbar utilities, active list rows, and compact status badges.
+   - **Outlined / Text (`surface` + `outline-variant`):** Low-emphasis, repetitive, or cancel/back actions.
+4. **Tertiary (`tertiary`, `on-tertiary`, `tertiary-container`, `on-tertiary-container`):**
    - Contrasting accents that balance primary. Used for badges, warning-adjacent notifications, creative editorial moments, or highlighting secondary metrics.
 
 ### 3.2. Fixed Accent Roles (Cross-Theme Stability)
